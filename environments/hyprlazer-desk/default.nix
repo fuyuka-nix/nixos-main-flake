@@ -3,7 +3,6 @@ fuyupkgs:
   nixosModules.default = {
     imports = with fuyupkgs.nixosModules; [
       ./nixos
-      starship.frosted-kebab
       stylix
     ];
   };

@@ -24,6 +24,7 @@ in
         locale-es-cr
         pipewire
         steam
+        starship
         nixvim
         nixvim-profiles.frosted-editor
       ]);

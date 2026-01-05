@@ -1,10 +1,14 @@
 {
   lib,
+  config,
   ...
 }:
+let
+  cfg = config.modules.starship.frosted-kebab;
+in
 {
-  stylix.targets.starship.enable = true;
-  programs.starship = {
+  config.stylix.targets.starship.enable = cfg.enable;
+  config.programs.starship = lib.mkIf cfg.enable {
     enable = true;
     settings = {
       "$schema" = "https://starship.rs/config-schema.json";

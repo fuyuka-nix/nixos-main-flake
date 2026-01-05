@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   ...
 }:
 {
@@ -44,10 +43,6 @@
       enable = true;
       openFirewall = true;
     };
-    # neovim = {
-      # enable = true;
-      # defaultEditor = lib.mkDefault true;
-    # };
   };
 
   environment.systemPackages = with pkgs; [
@@ -63,5 +58,6 @@
     HYPRCURSOR_SIZE = "24";
     HYPRCURSOR_THEME = "rose-pine-hyprcursor";
     GDK_BACKEND = "wayland";
+    EDITOR = "nvim";
   };
 }

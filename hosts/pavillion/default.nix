@@ -8,6 +8,8 @@
     ./copyparty.nix
   ];
 
+  modules.starship.frosted-kebab.enable = true;
+
   system.stateVersion = "25.11";
 
   nix.settings.allowed-users = [ "frozenfox" ];
