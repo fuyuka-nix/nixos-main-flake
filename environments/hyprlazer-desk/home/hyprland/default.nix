@@ -15,7 +15,6 @@ in
   services = {
     hypridle.enable = true;
     hyprpaper.enable = true;
-    hyprpolkitagent.enable = true;
   };
 
   programs = {

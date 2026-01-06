@@ -1,5 +1,4 @@
 {
-  pkgs,
   ...
 }:
 {
@@ -8,8 +7,6 @@
     ./quickshell
     ./kitty
     ./vesktop
-    ./zed-editor
-    # ./neovim
   ];
 
   services = {

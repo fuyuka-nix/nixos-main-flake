@@ -7,6 +7,10 @@
     ./yazi
   ];
 
+  security = {
+    polkit.enable = true;
+  };
+
   services = {
     hypridle.enable = true;
     dbus.enable = true;
