@@ -6,7 +6,6 @@
 {
   imports = [
     ./anki.nix
-    ./thunderbird.nix
   ];
 
   modules.home.services.seanime.enable = true; # This sucks if you ask me
@@ -27,6 +26,11 @@
     prismlauncher
     gh
     hyprpicker
+    cava
+    inkscape
+    brightnessctl
+    libresprite
+    libreoffice
   ];
 
   programs.zsh.shellAliases = {
