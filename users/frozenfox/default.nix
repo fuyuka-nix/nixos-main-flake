@@ -31,6 +31,7 @@
     brightnessctl
     libresprite
     libreoffice
+    heroic
   ];
 
   programs.zsh.shellAliases = {

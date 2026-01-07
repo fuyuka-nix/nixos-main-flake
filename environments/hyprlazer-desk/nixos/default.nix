@@ -54,7 +54,6 @@
     ripgrep
     wl-clipboard
     wofi
-    vieb
   ];
 
   environment.sessionVariables = {
