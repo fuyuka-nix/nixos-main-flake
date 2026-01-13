@@ -56,6 +56,7 @@
     wofi
     rofi
     kitty
+    exercism
   ];
 
   environment.sessionVariables = {
