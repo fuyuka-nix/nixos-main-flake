@@ -5,7 +5,6 @@
   imports = [
     ./hyprland
     ./quickshell
-    ./kitty
     ./vesktop
   ];
 

@@ -54,6 +54,8 @@
     ripgrep
     wl-clipboard
     wofi
+    rofi
+    kitty
   ];
 
   environment.sessionVariables = {
