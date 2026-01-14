@@ -57,6 +57,7 @@
     rofi
     kitty
     exercism
+    yadm
   ];
 
   environment.sessionVariables = {
