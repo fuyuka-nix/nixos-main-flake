@@ -17,6 +17,7 @@
     playerctld.enable = true;
     acpid.enable = true;
     tlp.enable = true;
+    upower.enable = true;
     displayManager.ly = {
       enable = true;
     };
