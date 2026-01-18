@@ -59,6 +59,7 @@
     kitty
     exercism
     yadm
+    quickshell
   ];
 
   environment.sessionVariables = {
