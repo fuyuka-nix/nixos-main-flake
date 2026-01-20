@@ -32,6 +32,8 @@
       pavucontrol
       helvum
       inotify-tools
+      vesktop
+      qutebrowser
     ];
     # sessionVariables = {
     # NIXOS_OZONE_WL = "1";

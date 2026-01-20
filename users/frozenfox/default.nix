@@ -13,7 +13,6 @@
   programs = {
     jq.enable = true;
     mpv.enable = true;
-    qutebrowser.enable = true;
   };
 
   home.homeDirectory = "/home/${config.home.username}";
