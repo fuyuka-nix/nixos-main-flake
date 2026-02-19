@@ -91,6 +91,10 @@
       withOverlays = overlays: { nixpkgs.overlays = overlays; };
       withAllOverlays = self.withOverlays (builtins.attrValues self.overlays);
 
+      rememberSrcPkgs =
+        pkgs: pkgsNames:
+        (nixpkgs.lib.genAttrs pkgsNames (name: (self.withSystem pkgs.stdenv.hostPlatform.system nixpkgs-unstable).${name}));
+
       overlays = {
         inherit (inputs.hyprland.overlays) hyprland-packages;
         copyparty = inputs.copyparty.overlays.default;
@@ -98,7 +102,12 @@
           osu-resources = final.callPackage ./osu-resources.nix { };
           zed-color-highlight = final.callPackage ./zed-color-lsp.nix { };
           vieb = (inputs.vieb.packagesFunc final).vieb;
-        };
+        }
+        // (self.rememberSrcPkgs final [
+          "osu-lazer-bin"
+          "prismlauncher"
+          "inkscape"
+        ]);
       };
 
       nixosModules = {
