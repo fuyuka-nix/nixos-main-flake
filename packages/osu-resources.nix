@@ -6,7 +6,7 @@
 
 pkgs.stdenv.mkDerivation rec {
   pname = "osu-resources";
-  version = "5d5020878bbdd9e54fbe89c6d2f833d17750e94c";
+  version = "d315afeb0edae1c320e10506af0b5b1da18256a6";
 
   src = pkgs.fetchFromGitHub {
     owner = "ppy";
