@@ -36,6 +36,7 @@
       qutebrowser
       fluffychat
       jami
+      gajim
       obs-studio
     ];
     # sessionVariables = {
