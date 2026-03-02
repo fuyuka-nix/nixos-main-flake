@@ -38,6 +38,7 @@
       jami
       gajim
       obs-studio
+      vieb
     ];
     # sessionVariables = {
     # NIXOS_OZONE_WL = "1";
