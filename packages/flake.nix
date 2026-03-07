@@ -107,6 +107,7 @@
           "osu-lazer-bin"
           "prismlauncher"
           "inkscape"
+          "gajim"
         ]);
       };
 
