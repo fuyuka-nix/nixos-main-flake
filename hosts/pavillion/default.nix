@@ -39,6 +39,7 @@
       gajim
       obs-studio
       vieb
+      simplex-chat-desktop
     ];
     # sessionVariables = {
     # NIXOS_OZONE_WL = "1";
