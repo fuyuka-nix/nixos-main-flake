@@ -15,7 +15,7 @@ in
       (importHost "pavillion")
       ++ (with fuyupkgs; [
         withAllOverlays
-        stylixModules.silly-kityo
+        stylixModules.macchiato-cat
         environments.hyprlazer-desk.nixosModules.default
       ])
       ++ (with fuyupkgs.nixosModules; [
