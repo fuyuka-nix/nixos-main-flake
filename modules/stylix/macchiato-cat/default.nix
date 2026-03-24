@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  config,
   ...
 }:
 let
@@ -18,7 +17,7 @@ in
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     polarity = "dark";
-    image = (config.lib.stylix.pixel "base01");
+    image = ./solar-wallpaperbetter.jpg;
     fonts = {
       serif = hackNerdFont;
       sansSerif = hackNerdFont;
