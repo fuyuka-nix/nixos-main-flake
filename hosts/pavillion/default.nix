@@ -24,21 +24,18 @@
 
   environment = {
     systemPackages = with pkgs; [
+      neovim
       home-manager
       nixd
       nil
       p7zip
       imagemagick
-      pavucontrol
       helvum
       inotify-tools
       vesktop
-      qutebrowser
-      fluffychat
-      jami
-      gajim
+      librewolf
+      tor-browser
       obs-studio
-      vieb
       simplex-chat-desktop
     ];
     # sessionVariables = {
