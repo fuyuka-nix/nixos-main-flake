@@ -29,6 +29,7 @@
 
   environment = {
     systemPackages = with pkgs; [
+      luajitPackages.luarocks
       vim
       home-manager
       nixd
