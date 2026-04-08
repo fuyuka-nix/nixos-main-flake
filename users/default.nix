@@ -24,7 +24,6 @@ in
         dunst
         zsh
         seanime
-        hyprsunset
       ]);
   };
 }

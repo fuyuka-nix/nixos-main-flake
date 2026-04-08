@@ -28,24 +28,12 @@
       ref = "release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      type = "github";
-      owner = "nix-community";
-      repo = "nixvim";
-      ref = "nixos-25.11";
-    };
     hyprland = {
       type = "github";
       owner = "hyprwm";
       repo = "Hyprland";
       ref = "nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-    vieb = {
-      type = "github";
-      owner = "tejing1";
-      repo = "vieb-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     copyparty = {
       type = "github";
@@ -100,20 +88,16 @@
         copyparty = inputs.copyparty.overlays.default;
         default = final: prev: {
           osu-resources = final.callPackage ./osu-resources.nix { };
-          zed-color-highlight = final.callPackage ./zed-color-lsp.nix { };
-          vieb = (inputs.vieb.packagesFunc final).vieb;
         }
         // (self.rememberSrcPkgs final [
           "osu-lazer-bin"
           "prismlauncher"
           "inkscape"
-          "gajim"
         ]);
       };
 
       nixosModules = {
         inherit (inputs.stylix.nixosModules) stylix;
-        inherit (inputs.nixvim.nixosModules) nixvim;
         copyparty = inputs.copyparty.nixosModules.default;
       }
       // (import ../modules/nixos self.nixpkgs.lib);

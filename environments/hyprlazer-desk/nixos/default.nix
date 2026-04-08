@@ -26,9 +26,6 @@
   xdg.portal = {
     enable = true;
     config.common.default = [ "hyprland" ];
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-cosmic
-    ];
     configPackages = with pkgs; [
       xdg-desktop-portal-hyprland
     ];
@@ -54,7 +51,6 @@
     rose-pine-hyprcursor
     ripgrep
     wl-clipboard
-    wofi
     rofi
     kitty
     exercism

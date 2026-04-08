@@ -1,12 +1,8 @@
 {
   pkgs,
-  config,
   lib,
   ...
 }:
-let
-  palette = config.lib.stylix.colors;
-in
 {
   services = {
     hypridle.enable = true;
@@ -18,9 +14,4 @@ in
   };
 
   stylix.targets.hyprland.enable = false;
-
-  home.packages = with pkgs; [
-    wofi
-    wl-clipboard
-  ];
 }
