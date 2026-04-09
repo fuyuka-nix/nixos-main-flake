@@ -53,7 +53,6 @@
     wl-clipboard
     rofi
     kitty
-    exercism
     yadm
     quickshell
   ];

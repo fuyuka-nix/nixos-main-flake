@@ -30,7 +30,6 @@
   environment = {
     systemPackages = with pkgs; [
       luajitPackages.luarocks
-      vim
       home-manager
       nixd
       nil
@@ -38,7 +37,6 @@
       imagemagick
       helvum
       inotify-tools
-      vesktop
       librewolf
       tor-browser
       obs-studio
