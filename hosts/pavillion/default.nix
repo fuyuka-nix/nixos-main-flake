@@ -41,6 +41,7 @@
       tor-browser
       obs-studio
       simplex-chat-desktop
+      thunderbird
     ];
     # sessionVariables = {
     # NIXOS_OZONE_WL = "1";
