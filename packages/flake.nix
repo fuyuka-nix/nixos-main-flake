@@ -79,7 +79,6 @@
       withOverlays = overlays: { nixpkgs.overlays = overlays; };
       withAllOverlays = self.withOverlays (builtins.attrValues self.overlays);
 
-      # To use the unstable branch packages instead
       rememberSrcPkgs =
         pkgs: pkgsNames:
         (nixpkgs.lib.genAttrs pkgsNames (name: (self.withSystem pkgs.stdenv.hostPlatform.system nixpkgs-unstable).${name}));
@@ -89,18 +88,11 @@
         copyparty = inputs.copyparty.overlays.default;
         default = final: prev: {
           osu-resources = final.callPackage ./osu-resources.nix { };
-	  inkscape = final.inkscape.overrideAttrs {
-	    src = final.fetchFromGitLab {
-	      owner = "inkscape";
-	      repo = "inkscape";
-	      fetchSubmodules = true;
-	      rev = "f4176f1be34d69310c73ba05fcb3945729aa45f2";
-	    };
-	  };
         }
         // (self.rememberSrcPkgs final [
           "osu-lazer-bin"
           "prismlauncher"
+          "inkscape"
         ]);
       };
 
