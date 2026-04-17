@@ -8,8 +8,6 @@
     ./anki.nix
   ];
 
-  modules.home.services.seanime.enable = true; # This sucks if you ask me
-
   programs = {
     jq.enable = true;
     mpv.enable = true;

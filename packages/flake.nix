@@ -41,11 +41,11 @@
       repo = "copyparty";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    seanime = {
+    custompkgs = {
       type = "github";
       owner = "rishabh5321";
-      repo = "seanime-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
+      repo = "custom-packages-flake";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
@@ -88,6 +88,7 @@
         copyparty = inputs.copyparty.overlays.default;
         default = final: prev: {
           osu-resources = final.callPackage ./osu-resources.nix { };
+	  seanime = inputs.custompkgs.packages.${final.stdenv.hostPlatform.system}.seanime;
         }
         // (self.rememberSrcPkgs final [
           "osu-lazer-bin"
@@ -104,7 +105,6 @@
 
       homeModules = {
         inherit (inputs.stylix.homeModules) stylix;
-        inherit (inputs.seanime.nixosModules) seanime;
       }
       // (import ../modules/home self.nixpkgs.lib);
 

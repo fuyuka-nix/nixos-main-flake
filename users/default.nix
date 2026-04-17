@@ -23,7 +23,6 @@ in
         xdg
         dunst
         zsh
-        seanime
       ]);
   };
 }

@@ -43,6 +43,7 @@
       simplex-chat-desktop
       thunderbird
       joplin-desktop
+      seanime
     ];
     # sessionVariables = {
     # NIXOS_OZONE_WL = "1";
