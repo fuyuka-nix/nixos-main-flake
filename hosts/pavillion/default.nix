@@ -42,6 +42,7 @@
       obs-studio
       simplex-chat-desktop
       thunderbird
+      joplin-desktop
     ];
     # sessionVariables = {
     # NIXOS_OZONE_WL = "1";
