@@ -22,6 +22,8 @@
     ];
   };
 
+  boot.enableContainers = true;
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
