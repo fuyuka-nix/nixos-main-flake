@@ -6,6 +6,7 @@
 {
   imports = [
     ./copyparty.nix
+    ./containers/nextcloud
   ];
 
   modules.starship.frosted-kebab.enable = true;
