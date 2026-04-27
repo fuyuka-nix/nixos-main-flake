@@ -25,6 +25,7 @@ in
         pipewire
         steam
         starship
+	arrpc
       ]);
   };
 }

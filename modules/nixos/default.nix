@@ -34,5 +34,6 @@ lib:
   "locale-es-cr"
   "pipewire"
   "steam"
+  "arrpc"
 ] (moduleName: ./${moduleName}.nix))
 
