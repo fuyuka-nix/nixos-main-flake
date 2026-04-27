@@ -6,6 +6,7 @@ let
   containerRoot = "/var/lib/nixos-containers/nextcloud";
 in
 {
+  system.stateVersion = "25.11";
   services = {
     mysql = {
       enable = true;
