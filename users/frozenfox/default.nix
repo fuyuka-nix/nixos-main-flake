@@ -33,14 +33,16 @@
 
   programs.zsh.shellAliases =
   let
-    rf = "~/mysystem/#pavillion";
+    rf = "~/mysystem/#";
+    su-nixos-r = "sudo nixos-rebuild";
   in
   {
-    nixos-rsrf = "sudo nixos-rebuild switch --flake ${rf}";
-    nixos-rbrf = "sudo nixos-rebuild boot --flake ${rf}";
-    nixos-rdrrf = "sudo nixos-rebuild dry-run --flake ${rf}";
-    home-msrf = "home-manager switch --flake ${rf}";
-    nix-home-rsrf = "sudo nixos-rebuild switch --flake ${rf}; home-manager switch --flake ${rf}";
+    nixos-rsrf = "${su-nixos-r} switch --flake ${rf}pavillion";
+    nixos-rbrf = "${su-nixos-r} boot --flake ${rf}pavillion";
+    nixos-rdrrf = "${su-nixos-r} dry-run --flake ${rf}pavillion";
+    nixos-testrf = "${su-nixos-r} test --flake ${rf}pavillion";
+    home-msrf = "home-manager switch --flake ${rf}frozenfox";
+    nix-home-rsrf = "${su-nixos-r} switch --flake ${rf}pavillion; home-manager switch --flake ${rf}frozenfox";
     kitty-d1 = "kitty --detach -1";
     kitty-d = "kitty --detach";
   };
