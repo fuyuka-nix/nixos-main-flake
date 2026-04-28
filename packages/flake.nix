@@ -28,13 +28,6 @@
       ref = "release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      type = "github";
-      owner = "hyprwm";
-      repo = "Hyprland";
-      ref = "nix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
     copyparty = {
       type = "github";
       owner = "9001";
@@ -84,9 +77,9 @@
         (nixpkgs.lib.genAttrs pkgsNames (name: (self.withSystem pkgs.stdenv.hostPlatform.system nixpkgs-unstable).${name}));
 
       overlays = {
-        inherit (inputs.hyprland.overlays) hyprland-packages;
         copyparty = inputs.copyparty.overlays.default;
-        default = final: prev: {
+	default = prev: final:
+	{
           osu-resources = final.callPackage ./osu-resources.nix { };
 	  seanime = inputs.custompkgs.packages.${final.stdenv.hostPlatform.system}.seanime;
         }
@@ -94,6 +87,7 @@
           "osu-lazer-bin"
           "prismlauncher"
           "inkscape"
+	  "hyprland"
         ]);
       };
 
