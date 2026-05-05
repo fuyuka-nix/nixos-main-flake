@@ -19,7 +19,6 @@ in
         environments.hyprlazer-desk.nixosModules.default
       ])
       ++ (with fuyupkgs.nixosModules; [
-        copyparty
         fonts
         locale-es-cr
         pipewire

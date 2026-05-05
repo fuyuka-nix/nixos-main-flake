@@ -28,12 +28,6 @@
       ref = "release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    copyparty = {
-      type = "github";
-      owner = "9001";
-      repo = "copyparty";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     custompkgs = {
       type = "github";
       owner = "rishabh5321";
@@ -77,7 +71,6 @@
         (nixpkgs.lib.genAttrs pkgsNames (name: (self.withSystem pkgs.stdenv.hostPlatform.system nixpkgs-unstable).${name}));
 
       overlays = {
-        copyparty = inputs.copyparty.overlays.default;
 	default = prev: final:
 	{
           osu-resources = final.callPackage ./osu-resources.nix { };
@@ -93,7 +86,6 @@
 
       nixosModules = {
         inherit (inputs.stylix.nixosModules) stylix;
-        copyparty = inputs.copyparty.nixosModules.default;
       }
       // (import ../modules/nixos self.nixpkgs.lib);
 

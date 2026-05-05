@@ -5,7 +5,6 @@
 }:
 {
   imports = [
-    ./copyparty.nix
     ./containers/nextcloud
   ];
 
@@ -86,13 +85,6 @@
       device = "/dev/disk/by-uuid/b43e0502-b5ed-4498-b491-c66fa78bddfe";
       fsType = "btrfs";
       options = [ "nofail" ];
-    };
-    "mnt/copyparty" = {
-      inherit (config.fileSystems."/mnt/ssdsata") device fsType;
-      options = [
-        "compress=lzo"
-        "subvol=copyparty"
-      ];
     };
     "mnt/steam" = {
       inherit (config.fileSystems."/mnt/ssdsata") device fsType;
