@@ -1,4 +1,4 @@
-fuyupkgs: environments:
+fuyupkgs:
 let
   inherit (fuyupkgs) withSystem;
   importHost = hostName: [
@@ -16,9 +16,9 @@ in
       ++ (with fuyupkgs; [
         withAllOverlays
         stylixModules.macchiato-cat
-        environments.hyprlazer-desk.nixosModules.default
       ])
       ++ (with fuyupkgs.nixosModules; [
+	stylix
         fonts
         locale-es-cr
         pipewire

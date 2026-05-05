@@ -11,11 +11,8 @@
       fuyupkgs,
       ...
     }:
-    let
-      environments = import ./environments fuyupkgs;
-    in
     {
-      nixosConfigurations = import ./hosts fuyupkgs environments;
-      homeConfigurations = import ./users fuyupkgs environments;
+      nixosConfigurations = import ./hosts fuyupkgs;
+      homeConfigurations = import ./users fuyupkgs;
     };
 }

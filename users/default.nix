@@ -1,4 +1,4 @@
-fuyupkgs: environments:
+fuyupkgs:
 let
   inherit (fuyupkgs) withSystem;
   homeConfiguration = fuyupkgs.home-manager.lib.homeManagerConfiguration;
@@ -16,9 +16,10 @@ in
       ++ (with fuyupkgs; [
         withAllOverlays
         stylixModules.macchiato-cat
-        environments.hyprlazer-desk.homeModules.default
       ])
       ++ (with fuyupkgs.homeModules; [
+	stylix
+	osu-resources
         git
         xdg
         dunst

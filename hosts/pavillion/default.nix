@@ -29,6 +29,33 @@
     defaultEditor = true;
   };
 
+  services = {
+    hypridle.enable = true;
+    dbus.enable = true;
+    playerctld.enable = true;
+    acpid.enable = true;
+    tlp.enable = true;
+    upower.enable = true;
+    displayManager.ly.enable = true;
+  };
+
+  users.defaultUserShell = pkgs.zsh;
+  programs = {
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
+    hyprlock.enable = true;
+    dconf.enable = true;
+    xwayland.enable = true;
+    yazi.enable = true;
+    zsh.enable = true;
+    localsend = {
+      enable = true;
+      openFirewall = true;
+    };
+  };
+
   environment = {
     systemPackages = with pkgs; [
       luajitPackages.luarocks
@@ -46,11 +73,22 @@
       thunderbird
       joplin-desktop
       seanime
+      rose-pine-hyprcursor
+      ripgrep
+      wl-clipboard
+      rofi
+      kitty
+      yadm
+      quickshell
     ];
-    # sessionVariables = {
-    # NIXOS_OZONE_WL = "1";
-    # PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
-    # };
+    sessionVariables = {
+      #NIXOS_OZONE_WL = "1";
+      #PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
+      XCURSOR_SIZE = "24";
+      HYPRCURSOR_SIZE = "24";
+      HYPRCURSOR_THEME = "rose-pine-hyprcursor";
+      GDK_BACKEND = "wayland";
+    };
   };
 
   networking = {

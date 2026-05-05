@@ -8,9 +8,20 @@
     ./anki.nix
   ];
 
+  stylix.targets.hyprland.enable = false;
+
+  services = {
+    easyeffects.enable = true;
+    hyprpaper.enable = true;
+  };
+
   programs = {
     jq.enable = true;
     mpv.enable = true;
+    btop.enable = true;
+    fastfetch.enable = true;
+    osu-resources.enable = true;
+    hyprshot.enable = true;
   };
 
   home.homeDirectory = "/home/${config.home.username}";
