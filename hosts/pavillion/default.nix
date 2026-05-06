@@ -88,6 +88,7 @@
       HYPRCURSOR_SIZE = "24";
       HYPRCURSOR_THEME = "rose-pine-hyprcursor";
       GDK_BACKEND = "wayland";
+      ROOT_FLAKE = config.modules.sysPath;
     };
   };
 
