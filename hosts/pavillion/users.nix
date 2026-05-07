@@ -8,6 +8,8 @@
 
   users.users.frozenfox = {
     useDefaultShell = true;
+    isNormalUser = true;
+    group = "frozenfox";
     extraGroups = [
       "input"
       "wheel"
