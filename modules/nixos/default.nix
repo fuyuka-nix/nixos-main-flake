@@ -5,6 +5,7 @@ lib:
   "pipewire"
   "steam"
   "arrpc"
+  "hyprpaper"
 ] (moduleName: ./${moduleName}.nix))
 // {
   starship = ./starship;

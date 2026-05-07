@@ -25,6 +25,7 @@ in
         steam
         starship
 	arrpc
+	hyprpaper
       ]);
   };
 }
