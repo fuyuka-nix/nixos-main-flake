@@ -15,6 +15,6 @@
     ];
     reloadIfChanged = true;
     stopIfChanged = true;
-    script = "hyprpaper"
+    script = "hyprpaper";
   };
 }
