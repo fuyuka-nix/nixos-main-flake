@@ -7,11 +7,32 @@
   users.defaultUserShell = pkgs.zsh;
 
   users.users.frozenfox = {
-    isNormalUser = true;
+    useDefaultShell = true;
     extraGroups = [
       "input"
       "wheel"
       "networkmanager"
+    ];
+    packages = with pkgs; [
+      jq
+      mpv
+      btop
+      fastfetch
+      hyprshot
+      youtube-music
+      wl-clicker
+      lutris
+      winetricks
+      osu-lazer-bin
+      prismlauncher
+      gh
+      hyprpicker
+      cava
+      inkscape
+      brightnessctl
+      libresprite
+      libreoffice
+      heroic
     ];
   };
 }

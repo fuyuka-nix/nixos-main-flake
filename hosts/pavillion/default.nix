@@ -12,8 +12,6 @@
   modules.starship.frosted-kebab.enable = true;
 
   system.stateVersion = "25.11";
-
-
   boot.enableContainers = true;
 
   programs.neovim = {
@@ -31,7 +29,6 @@
     displayManager.ly.enable = true;
   };
 
-  users.defaultUserShell = pkgs.zsh;
   programs = {
     hyprland = {
       enable = true;
