@@ -33,6 +33,7 @@
       libresprite
       libreoffice
       heroic
+      anki
     ];
   };
 }

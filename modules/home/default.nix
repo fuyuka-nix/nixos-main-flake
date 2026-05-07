@@ -5,10 +5,8 @@ lib:
   };
 }
 // (lib.genAttrs [
-  "dunst"
   "git"
   "zsh"
-  "osu-resources"
   "xdg"
 ] (moduleName: ./${moduleName}))
 

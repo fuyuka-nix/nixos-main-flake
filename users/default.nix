@@ -19,10 +19,8 @@ in
       ])
       ++ (with fuyupkgs.homeModules; [
 	stylix
-	osu-resources
         git
         xdg
-        dunst
         zsh
       ]);
   };
