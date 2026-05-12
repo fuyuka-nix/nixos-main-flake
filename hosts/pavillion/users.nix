@@ -35,6 +35,7 @@
       libreoffice
       heroic
       anki
+      affinity-v3
     ];
   };
 }

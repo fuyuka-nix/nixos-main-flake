@@ -28,6 +28,11 @@
       ref = "release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    affinity-nix = {
+      type = "github";
+      owner = "mrshmllow";
+      repo = "affinity-nix";
+    };
     custompkgs = {
       type = "github";
       owner = "rishabh5321";
@@ -71,6 +76,7 @@
         (nixpkgs.lib.genAttrs pkgsNames (name: (self.withSystem pkgs.stdenv.hostPlatform.system nixpkgs-unstable).${name}));
 
       overlays = {
+	affinity-nix = inputs.affinity-nix.overlays.default;
 	default = prev: final:
 	{
           osu-resources = final.callPackage ./osu-resources.nix { };
