@@ -9,6 +9,7 @@ lib:
 ] (moduleName: ./${moduleName}.nix))
 // {
   starship = ./starship;
+  disable-bd-prochot = ./disable-bd-prochot;
   default = {
     options = {
       modules.sysPath = lib.mkOption {
