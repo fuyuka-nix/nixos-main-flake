@@ -3,10 +3,25 @@
   ...
 }:
 let
-  containerRoot = "/var/lib/nixos-containers/nextcloud";
+  onion = "fuyukayd6cbyycqfcaupxrgurr6zngv2lgqagqbuyocxrhv3ojk47pid.onion";
 in
 {
   system.stateVersion = "25.11";
+  environment.systemPackages = with pkgs; [
+    yazi
+    man
+  ];
+  programs.vim.enable = true;
+
+  users.users.fox = {
+    isNormalUser = true;
+    initialPassword = "shi";
+    extraGroups = [
+      "input"
+      "wheel"
+    ];
+  };
+
   services = {
     mysql = {
       enable = true;
@@ -58,11 +73,10 @@ in
 	dbtype = "mysql";
 	dbname = "nextcloud";
 	dbuser = "nextcloud";
-	adminpassFile = "/etc/winter-secrets/nxtcloud.txt";
+	adminpassFile = "/etc/nextcloud.txt";
       };
       settings = {
-	# change
-        trusted_domains = [ "nxtcloud.fuyukayd6cbyycqfcaupxrgurr6zngv2lgqagqbuyocxrhv3ojk47pid.onion" ];
+        trusted_domains = [ "nxtcloud.${onion}" ];
         overwriteprotocol = "http";
         proxy = "127.0.0.1:9050"; 
       };
@@ -70,29 +84,29 @@ in
 
     tor = {
       enable = true;
-      client.enable = true;
+      openFirewall = true;
 
       settings = {
 	SOCKSPort = [{ port = 9050; }];
-      };
-      
-      relay.onionServices = {
-        nextcloud = {
-          path = "${containerRoot}/hidden_service/nextcloud";
-	  map = [
-	    {
-	      port = 80;
-	      target = {
-		addr = "127.0.0.1";
-		port = 4443;
-	      };
-	    }
-	  ];
-        };
+	ORPort = "auto";
       };
 
-      torsocks = {
+      relay = {
 	enable = true;
+	role = "relay";
+	onionServices = {
+	  "${onion}" = {
+	    map = [
+	      {
+		port = 80;
+		target = {
+		  addr = "127.0.0.1";
+		  port = 4443;
+		};
+	      }
+	    ];
+	  };
+        };
       };
     };
   };
