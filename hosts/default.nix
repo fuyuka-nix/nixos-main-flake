@@ -26,6 +26,7 @@ in
         starship
 	arrpc
 	hyprpaper
+	disable-bd-prochot
       ]);
   };
 }
