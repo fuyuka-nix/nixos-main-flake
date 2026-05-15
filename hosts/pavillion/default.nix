@@ -14,6 +14,16 @@
 
   system.stateVersion = "25.11";
   boot.enableContainers = true;
+  services.xserver = {
+    enable = true;
+    windowManager.awesome = {
+      enable = true;
+      luaModules = with pkgs.luaPackages; [
+        luarocks
+        luadbi-mysql
+      ];
+    };
+  };
 
   programs.neovim = {
     enable = true;
