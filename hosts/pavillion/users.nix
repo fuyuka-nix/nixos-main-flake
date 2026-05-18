@@ -29,13 +29,14 @@
       gh
       hyprpicker
       cava
-      inkscape
       brightnessctl
       libresprite
       libreoffice
       heroic
       anki
       affinity-v3
+      tmux
+      pavucontrol
     ];
   };
 }
