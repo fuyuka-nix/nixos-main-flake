@@ -37,6 +37,8 @@
       affinity-v3
       tmux
       pavucontrol
+      android-tools
+      vim
     ];
   };
 }
