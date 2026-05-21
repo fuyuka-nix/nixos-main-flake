@@ -39,6 +39,12 @@
       pavucontrol
       android-tools
       vim
+      obs-studio
+      simplex-chat-desktop
+      thunderbird
+      joplin-desktop
+      seanime
+      rose-pine-hyprcursor
     ];
   };
 }

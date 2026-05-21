@@ -62,21 +62,15 @@
       home-manager
       nixd
       nil
+      hyprlauncher
       p7zip
       imagemagick
       helvum
       inotify-tools
       librewolf
       tor-browser
-      obs-studio
-      simplex-chat-desktop
-      thunderbird
-      joplin-desktop
-      seanime
-      rose-pine-hyprcursor
       ripgrep
       wl-clipboard
-      rofi
       kitty
       yadm
       quickshell
