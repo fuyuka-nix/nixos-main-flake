@@ -14,8 +14,6 @@
   system.stateVersion = "25.11";
   boot.enableContainers = true;
 
-  programs.
-
   services = {
     hypridle.enable = true;
     dbus.enable = true;
