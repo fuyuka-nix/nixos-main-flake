@@ -5,7 +5,6 @@
 }:
 {
   imports = [
-    ./containers/nextcloud
     ./users.nix
     ./networking.nix
   ];
@@ -90,12 +89,6 @@
       GDK_BACKEND = "wayland";
       ROOT_FLAKE = config.modules.sysPath;
     };
-  };
-
-  networking = {
-    networkmanager.enable = true;
-    hostName = "Pavillion-Laptop";
-    firewall.enable = true;
   };
 
   hardware = {
