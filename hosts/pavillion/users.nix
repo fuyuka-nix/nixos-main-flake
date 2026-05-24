@@ -15,36 +15,29 @@
       "networkmanager"
     ];
     packages = with pkgs; [
-      jq
-      mpv
-      btop
-      fastfetch
-      hyprshot
-      youtube-music
-      wl-clicker
-      lutris
-      winetricks
-      osu-lazer-bin
-      prismlauncher
+      android-tools
       gh
-      hyprpicker
-      cava
-      brightnessctl
+      jq
+      tmux
+
+      affinity-v3
       libresprite
       libreoffice
-      heroic
-      anki
-      affinity-v3
-      tmux
-      pavucontrol
-      android-tools
-      vim
       obs-studio
+
       simplex-chat-desktop
       thunderbird
       joplin-desktop
+
+      anki
       seanime
-      rose-pine-hyprcursor
+      heroic
+      youtube-music
+      vlc
+
+      cataclysm-dda
+      osu-lazer-bin
+      prismlauncher
     ];
   };
 }

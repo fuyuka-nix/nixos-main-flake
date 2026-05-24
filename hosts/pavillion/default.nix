@@ -15,10 +15,7 @@
   system.stateVersion = "25.11";
   boot.enableContainers = true;
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
+  programs.
 
   services = {
     hypridle.enable = true;
@@ -40,9 +37,14 @@
     xwayland.enable = true;
     yazi.enable = true;
     zsh.enable = true;
+    vim.enable = true;
     localsend = {
       enable = true;
       openFirewall = true;
+    };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
     };
   };
 
@@ -55,23 +57,29 @@
       nil
       wl-clipboard
       inotify-tools
+      brightnessctl
 
       quickshell
+      rose-pine-hyprcursor
       hyprlauncher
       hyprsunset
+      hyprpicker
+      hyprshot
       kitty
+      fastfetch
 
       p7zip
       imagemagick
       ripgrep
+      btop
 
       helvum
       easyeffects
+      pavucontrol
 
       librewolf
       tor-browser
 
-      cataclysm-dda
     ];
     sessionVariables = {
       #NIXOS_OZONE_WL = "1";
