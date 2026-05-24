@@ -48,22 +48,29 @@
 
   environment = {
     systemPackages = with pkgs; [
-      luajitPackages.luarocks
       home-manager
+      yadm
+
       nixd
       nil
+      wl-clipboard
+      inotify-tools
+
+      quickshell
       hyprlauncher
+      hyprsunset
+      kitty
+
       p7zip
       imagemagick
+      ripgrep
+
       helvum
-      inotify-tools
+      easyeffects
+
       librewolf
       tor-browser
-      ripgrep
-      wl-clipboard
-      kitty
-      yadm
-      quickshell
+
       cataclysm-dda
     ];
     sessionVariables = {

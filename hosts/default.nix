@@ -25,7 +25,6 @@ in
         steam
         starship
 	arrpc
-	hyprpaper
 	disable-bd-prochot
       ]);
   };
