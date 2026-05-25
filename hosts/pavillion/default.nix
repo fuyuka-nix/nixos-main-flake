@@ -60,6 +60,7 @@
       rose-pine-hyprcursor
       hyprlauncher
       hyprsunset
+      hyprpaper
       hyprpicker
       hyprshot
       kitty
