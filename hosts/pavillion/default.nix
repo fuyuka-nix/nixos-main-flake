@@ -28,6 +28,7 @@
     hyprland = {
       enable = true;
       xwayland.enable = true;
+      withUWSM = true;
     };
     hyprlock.enable = true;
     dconf.enable = true;
