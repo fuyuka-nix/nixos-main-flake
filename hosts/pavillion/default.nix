@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }:
@@ -21,7 +22,6 @@
     acpid.enable = true;
     tlp.enable = true;
     upower.enable = true;
-    displayManager.ly.enable = true;
   };
 
   programs = {
@@ -29,6 +29,10 @@
       enable = true;
       xwayland.enable = true;
       withUWSM = true;
+    };
+    uwsm.waylandCompositors.hyprland = lib.mkForce {
+      prettyName = "hyprland";
+      binPath = "/run/current-system/sw/bin/start-hyprland";
     };
     hyprlock.enable = true;
     dconf.enable = true;
@@ -81,13 +85,9 @@
 
     ];
     sessionVariables = {
-      #NIXOS_OZONE_WL = "1";
-      #PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
-      XCURSOR_SIZE = "24";
-      HYPRCURSOR_SIZE = "24";
       HYPRCURSOR_THEME = "rose-pine-hyprcursor";
-      GDK_BACKEND = "wayland";
       ROOT_FLAKE = config.modules.sysPath;
+      # Hyprland specific variables are defined at ~/.config/uwsm/env-hyprland (yadm)
     };
   };
 
