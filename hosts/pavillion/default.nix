@@ -60,6 +60,7 @@
       wl-clipboard
       inotify-tools
       brightnessctl
+      mako
 
       quickshell
       rose-pine-hyprcursor
