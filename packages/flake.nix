@@ -102,6 +102,11 @@
       // (import ../modules/home self.nixpkgs.lib);
 
       stylixModules = (import ../modules/stylix self.nixpkgs.lib);
+      
+      packages = self.forAllSystems inputs.nixpkgs-unstable (pkgs:{
+	cdda-mods = pkgs.callPackage ./cdda-mods { };
+	osu-resources = pkgs.callPackage ./osu-resources.nix { };
+      });
     };
 }
 
