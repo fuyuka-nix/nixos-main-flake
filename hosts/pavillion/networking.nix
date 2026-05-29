@@ -15,12 +15,10 @@
 
       settings = {
 	SOCKSPort = [{ port = 9050; }];
-	ORPort = "auto";
       };
 
-      relay = {
+      client = {
 	enable = true;
-	role = "relay";
       };
     };
     yggdrasil = {
