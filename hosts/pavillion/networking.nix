@@ -11,6 +11,7 @@
     tor = {
       enable = true;
       openFirewall = true;
+      torsocks.enable = true;
 
       settings = {
 	SOCKSPort = [{ port = 9050; }];
