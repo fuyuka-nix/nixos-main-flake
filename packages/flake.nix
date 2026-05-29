@@ -81,7 +81,7 @@
 	{
           osu-resources = final.callPackage ./osu-resources.nix { };
 	  seanime = inputs.custompkgs.packages.${final.stdenv.hostPlatform.system}.seanime;
-	  cdda-mods = final.callPackage ./cdda-mods { };
+	cdda-mods = final.callPackage ./cdda-mods { };
         }
         // (self.rememberSrcPkgs final [
           "osu-lazer-bin"
