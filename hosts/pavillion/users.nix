@@ -35,9 +35,11 @@
       youtube-music
       vlc
 
-      cataclysm-dda
       osu-lazer-bin
       prismlauncher
+      (cataclysm-dda.withMods (_: with cdda-mods; [
+	cc-sounds
+      ]))
     ];
   };
 }
