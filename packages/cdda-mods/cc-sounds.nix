@@ -15,8 +15,9 @@ stdenv.mkDerivation rec {
   };
 
   installPhase = ''
-    mkdir -p $out
-    cp -a ./ $out
+    destdir="$out/share/cataclysm-dda/sound"
+    mkdir -p "$destdir"
+    cp -a ./ "$destdir/CC-Sounds"
   '';
 
   meta = with lib; {
