@@ -14,10 +14,10 @@ in
     modules =
       (importUser "frozenfox")
       ++ [
-	{nixpkgs.overlays = with.fuyupkgs.overlays; [
+	{nixpkgs.overlays = with fuyupkgs.overlays; [
 	  default
 	  affinity-nix
-	]}
+	];}
         #fuyupkgs.stylixModules.macchiato-cat
       ]
       ++ (with fuyupkgs.homeModules; [

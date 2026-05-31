@@ -4,7 +4,7 @@
   ...
 }:
 {
-  stylix.targets.hyprland.enable = false;
+  #stylix.targets.hyprland.enable = false;
 
   services = {
     easyeffects.enable = true;
