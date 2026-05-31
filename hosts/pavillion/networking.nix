@@ -17,10 +17,12 @@
 	enable = true;
       };
     };
+    /*
     yggdrasil = {
       enable = true;
       configFile = "/etc/yggdrasil.conf";
       group = "wheel";
     };
+    */
   };
 }
