@@ -13,10 +13,13 @@ in
     pkgs = withSystem "x86_64-linux" fuyupkgs.nixpkgs;
     modules =
       (importUser "frozenfox")
-      ++ (with fuyupkgs; [
-        withAllOverlays
-        #stylixModules.macchiato-cat
-      ])
+      ++ [
+	{nixpkgs.overlays = with.fuyupkgs.overlays; [
+	  default
+	  affinity-nix
+	]}
+        #fuyupkgs.stylixModules.macchiato-cat
+      ]
       ++ (with fuyupkgs.homeModules; [
 	#stylix
         git
