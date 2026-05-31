@@ -76,7 +76,7 @@
       ripgrep
       btop
 
-      helvum
+      crosspipe
       easyeffects
       pavucontrol
 
