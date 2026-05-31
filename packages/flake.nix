@@ -40,7 +40,7 @@
     }:
     {
       inherit nixpkgs;
-      inherit (inputs) home-manager stylix;
+      inherit (inputs) home-manager;
 
       systems = [
         "x86_64-linux"
@@ -57,16 +57,16 @@
       };
 
       nixosModules = {
-        inherit (inputs.stylix.nixosModules) stylix;
+        #inherit (inputs.stylix.nixosModules) stylix;
       }
       // (import ../modules/nixos nixpkgs.lib);
 
       homeModules = {
-        inherit (inputs.stylix.homeModules) stylix;
+        #inherit (inputs.stylix.homeModules) stylix;
       }
       // (import ../modules/home nixpkgs.lib);
 
-      stylixModules = (import ../modules/stylix nixpkgs.lib);
+      #stylixModules = (import ../modules/stylix nixpkgs.lib);
       
       packages = self.lib.forAllSystems nixpkgs (pkgs: {
 	cdda-mods = pkgs.callPackage ./cdda-mods { };

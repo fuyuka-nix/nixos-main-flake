@@ -15,10 +15,10 @@ in
       (importUser "frozenfox")
       ++ (with fuyupkgs; [
         withAllOverlays
-        stylixModules.macchiato-cat
+        #stylixModules.macchiato-cat
       ])
       ++ (with fuyupkgs.homeModules; [
-	stylix
+	#stylix
         git
         xdg
         zsh
