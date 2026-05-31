@@ -32,7 +32,6 @@
       anki
       seanime
       heroic
-      youtube-music
       vlc
 
       osu-lazer-bin
