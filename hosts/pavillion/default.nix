@@ -34,7 +34,6 @@
       binPath = "/run/current-system/sw/bin/start-hyprland";
     };
     hyprlock.enable = true;
-    dconf.enable = true;
     xwayland.enable = true;
     yazi.enable = true;
     zsh.enable = true;
