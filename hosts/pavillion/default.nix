@@ -12,7 +12,6 @@
 
   modules.starship.frosted-kebab.enable = true;
 
-  system.stateVersion = "25.11";
   boot.enableContainers = true;
 
   services = {

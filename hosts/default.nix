@@ -1,6 +1,6 @@
 fuyupkgs:
 let
-  inherit (fuyupkgs) withSystem;
+  inherit (fuyupkgs.lib) withSystem;
   importHost = hostName: [
     ./${hostName}
     ./${hostName}/hardware-configuration.nix
@@ -13,10 +13,13 @@ in
     pkgs = withSystem "x86_64-linux" fuyupkgs.nixpkgs;
     modules =
       (importHost "pavillion")
-      ++ (with fuyupkgs; [
-        withAllOverlays
-        stylixModules.macchiato-cat
-      ])
+      ++ [
+	{nixpkgs.overlays = with fuyupkgs.overlays; [
+	  default
+	  affinity-nix
+	];}
+        fuyupkgs.stylixModules.macchiato-cat
+      ]
       ++ (with fuyupkgs.nixosModules; [
 	stylix
         fonts

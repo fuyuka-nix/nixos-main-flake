@@ -1,6 +1,6 @@
 fuyupkgs:
 let
-  inherit (fuyupkgs) withSystem;
+  inherit (fuyupkgs.lib) withSystem;
   homeConfiguration = fuyupkgs.home-manager.lib.homeManagerConfiguration;
   importUser = userName: [
     ./${userName}

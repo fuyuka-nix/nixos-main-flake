@@ -18,6 +18,7 @@ lib:
       };
     };
     config = {
+      system.stateVersion = "26.05";
       boot = {
 	loader = {
 	  systemd-boot.enable = true;
@@ -35,7 +36,7 @@ lib:
 	  options = "--delete-older-than 7d";
 	};
 	extraOptions = ''
-	  experimental-features = nix-command flakes
+	  experimental-features = nix-command flakes pipe-operators
 	  keep-outputs = true
 	  keep-derivations = true
 	'';
