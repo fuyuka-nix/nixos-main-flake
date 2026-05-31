@@ -18,10 +18,10 @@ in
 	  default
 	  affinity-nix
 	];}
-        fuyupkgs.stylixModules.macchiato-cat
+        #fuyupkgs.stylixModules.macchiato-cat
       ]
       ++ (with fuyupkgs.nixosModules; [
-	stylix
+	#stylix
         fonts
         locale-es-cr
         pipewire
