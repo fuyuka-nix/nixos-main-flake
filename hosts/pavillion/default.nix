@@ -29,10 +29,6 @@
       xwayland.enable = true;
       withUWSM = true;
     };
-    uwsm.waylandCompositors.hyprland = lib.mkForce {
-      prettyName = "hyprland";
-      binPath = "/run/current-system/sw/bin/start-hyprland";
-    };
     hyprlock.enable = true;
     xwayland.enable = true;
     yazi.enable = true;
