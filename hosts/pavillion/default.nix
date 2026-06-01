@@ -24,6 +24,7 @@
   };
 
   programs = {
+    nh.flake = "/home/frozenfox/mysystem";
     hyprland = {
       enable = true;
       xwayland.enable = true;
@@ -77,11 +78,9 @@
 
       librewolf
       tor-browser
-
     ];
     sessionVariables = {
       HYPRCURSOR_THEME = "rose-pine-hyprcursor";
-      ROOT_FLAKE = config.modules.sysPath;
       # Hyprland specific variables are defined at ~/.config/uwsm/env-hyprland (yadm)
     };
   };
