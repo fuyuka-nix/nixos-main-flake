@@ -4,7 +4,7 @@
 {
   networking = {
     networkmanager.enable = true;
-    hostName = "Pavillion-Laptop";
+    hostName = "pavillion";
     firewall.enable = true;
   };
   services = {
