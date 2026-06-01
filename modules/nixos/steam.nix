@@ -13,7 +13,7 @@
     };
     gamescope = {
       enable = true;
-      capSysNice = true;
+      # capSysNice = true;
       env = {
         __VK_LAYER_NV_optimus = "NVIDIA_only";
         __GLX_VENDOR_LIBRARY_NAME = "nvidia";
