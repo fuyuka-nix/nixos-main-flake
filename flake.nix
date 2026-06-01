@@ -13,6 +13,5 @@
     }:
     {
       nixosConfigurations = import ./hosts fuyupkgs;
-      homeConfigurations = import ./users fuyupkgs;
     };
 }

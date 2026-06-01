@@ -25,6 +25,7 @@
 
   programs = {
     nh.flake = "/home/frozenfox/mysystem";
+    git.enable = true;
     hyprland = {
       enable = true;
       xwayland.enable = true;

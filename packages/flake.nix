@@ -8,18 +8,6 @@
       repo = "nixpkgs";
       ref = "nixos-unstable";
     };
-    home-manager = {
-      type = "github";
-      owner = "nix-community";
-      repo = "home-manager";
-      ref = "release-26.05";
-    };
-    stylix = {
-      type = "github";
-      owner = "nix-community";
-      repo = "stylix";
-      ref = "release-25.11";
-    };
     affinity-nix = {
       type = "github";
       owner = "mrshmllow";
@@ -40,7 +28,6 @@
     }:
     {
       inherit nixpkgs;
-      inherit (inputs) home-manager;
 
       systems = [
         "x86_64-linux"
@@ -56,17 +43,7 @@
         };
       };
 
-      nixosModules = {
-        #inherit (inputs.stylix.nixosModules) stylix;
-      }
-      // (import ../modules/nixos nixpkgs.lib);
-
-      homeModules = {
-        #inherit (inputs.stylix.homeModules) stylix;
-      }
-      // (import ../modules/home nixpkgs.lib);
-
-      #stylixModules = (import ../modules/stylix nixpkgs.lib);
+      nixosModules = import ../modules/nixos nixpkgs.lib;
       
       packages = self.lib.forAllSystems nixpkgs (pkgs: {
 	cdda-mods = pkgs.callPackage ./cdda-mods { };
