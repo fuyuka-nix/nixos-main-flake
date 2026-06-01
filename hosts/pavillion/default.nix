@@ -31,10 +31,16 @@
       xwayland.enable = true;
       withUWSM = true;
     };
+    zsh = {
+      enable = true;
+      enableLsColors = true;
+      vteIntegration = true;
+      syntaxHighlighting.enable = true;
+      autosuggestions.enable = true;
+    };
     hyprlock.enable = true;
     xwayland.enable = true;
     yazi.enable = true;
-    zsh.enable = true;
     vim.enable = true;
     localsend = {
       enable = true;
