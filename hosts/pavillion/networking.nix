@@ -1,8 +1,15 @@
 {
+  lib,
   ...
 }:
 let
-  yggPrefix = "300:9eba:ceda:4c59";
+  # Destroy unneded variables, embrace pipes
+  toIpv6Address = prefix64: seed: seed
+    |> builtins.hashString "sha256"
+    |> (x: map (i: builtins.substring (4 * i) 4 x) [ 0 1 2 3 ])
+    |> (x: builtins.concatStringsSep ":" ([ prefix64 ] ++ x));
+
+  #yggPrefix = "300:9eba:ceda:4c59"; # This seems to regenerate on every rebuild
 in
 {
   networking = {
@@ -27,13 +34,11 @@ in
       openMulticastPort = true;
       settings = {
 	IfName = "ygg0";
-	Listen = [ "[::]:0" ];
 	Peers = [
 	  "tcp://satori.nadeko.net:44441"
 	  "tcp://ygg.nadeko.net:44441"
 	  "tcp://ygg-1.okade.pro:20000"
 	];
-	MulticastInterfaces = [ "eno1" "wlo1" ];
 	AllowedPublicKeys = [
 	  "466a6c8313ae63052639a09bc053f1be9901357633add9ad8de636dfeb604a6f"
 	];
