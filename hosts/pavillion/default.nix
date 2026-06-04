@@ -14,6 +14,17 @@
 
   boot.enableContainers = true;
 
+  sops = {
+    defaultSopsFile = ./secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/frozenfox/.config/sops/age/keys.txt";
+
+    secrets = {
+      "ygg/private" = { };
+      "ygg/address" = { };
+    };
+  };
+
   services = {
     hypridle.enable = true;
     dbus.enable = true;

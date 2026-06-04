@@ -13,6 +13,11 @@
       owner = "mrshmllow";
       repo = "affinity-nix";
     };
+    sops-nix = {
+      type = "github";
+      owner = "Mic92";
+      repo = "sops-nix";
+    };
     custompkgs = {
       type = "github";
       owner = "rishabh5321";
@@ -43,8 +48,11 @@
         };
       };
 
-      nixosModules = import ../modules/nixos nixpkgs.lib;
-      
+      nixosModules = import ../modules/nixos nixpkgs.lib
+      // {
+	sops-nix = inputs.sops-nix.nixosModules.default;
+      };
+
       packages = self.lib.forAllSystems nixpkgs (pkgs: {
 	cdda-mods = pkgs.callPackage ./cdda-mods { };
 	osu-resources = pkgs.callPackage ./osu-resources.nix { };

@@ -8,8 +8,7 @@ let
     |> builtins.hashString "sha256"
     |> (x: map (i: builtins.substring (4 * i) 4 x) [ 0 1 2 3 ])
     |> (x: builtins.concatStringsSep ":" ([ prefix64 ] ++ x));
-
-  #yggPrefix = "300:9eba:ceda:4c59"; # This seems to regenerate on every rebuild
+  yggPrefix = "300:3467:ae65:977a";
 in
 {
   networking = {
@@ -30,10 +29,10 @@ in
     yggdrasil = {
       enable = true;
       group = "wheel";
-      persistentKeys = true;
       openMulticastPort = true;
       settings = {
 	IfName = "ygg0";
+	PrivateKeyPath = "/run/secrets/ygg/private";
 	Peers = [
 	  "tcp://satori.nadeko.net:44441"
 	  "tcp://ygg.nadeko.net:44441"
