@@ -32,6 +32,7 @@
       ];
       extraPackages = with pkgs; [
         gamescope
+	dotnet-runtime_8
       ];
       gamescopeSession = {
         enable = true;
