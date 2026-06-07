@@ -19,6 +19,7 @@
       gh
       jq
       tmux
+      sops
 
       affinity-v3
       libresprite

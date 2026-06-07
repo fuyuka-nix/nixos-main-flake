@@ -21,7 +21,7 @@
 
     secrets = {
       "ygg/private" = { };
-      "ygg/address" = { };
+      "radicale-pass" = { };
     };
   };
 
