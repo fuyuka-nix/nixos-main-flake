@@ -21,7 +21,10 @@
 
     secrets = {
       "ygg/private" = { };
-      "radicale-pass" = { };
+      "radicale-pass" = {
+	owner = config.services.radicale.user;
+	group = config.services.radicale.group;
+      };
     };
   };
 

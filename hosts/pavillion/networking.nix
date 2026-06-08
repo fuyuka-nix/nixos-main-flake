@@ -30,7 +30,7 @@ in
   };
   config = {
     vhosts = {
-      test = { ygg = "${yggPrefix}::1"; };
+      radicale = { };
     };
 
     networking = {
@@ -57,17 +57,15 @@ in
       nginx = {
 	enable = true;
 	virtualHosts = with config.vhosts; {
-	/*
-	  "${test.ygg}" = {
+	  "${radicale.ygg}" = {
 	    listen = [{ addr = "[::]"; port = 80; }];
 	    locations."/" = {
-	      return = "200 '<html><body>It just works</body></html>'";
+	      proxyPass = "http://127.0.0.1:5053";
 	      extraConfig = ''
-		default_type text/html;
+		proxy_pass_header Authorization;
 	      '';
 	    };
 	  };
-	  */
 	};
       };
       tor = {
@@ -91,6 +89,17 @@ in
 	    "tcp://ygg.nadeko.net:44441"
 	    "tcp://ygg-1.okade.pro:20000"
 	  ];
+	};
+      };
+      radicale = {
+	enable = true;
+	settings = {
+	  server.hosts = [ "0.0.0.0:5053" ];
+	  auth = {
+	    type = "htpasswd";
+	    htpasswd_filename = "/run/secrets/radicale-pass";
+	    htpasswd_encryption = "plain";
+	  };
 	};
       };
     };
