@@ -29,13 +29,13 @@
       simplex-chat-desktop
       thunderbird
       joplin-desktop
+      syncthing
 
       anki
       seanime
       heroic
       vlc
 
-      limo
       osu-lazer-bin
       prismlauncher
       (cataclysm-dda.withMods (_: with cdda-mods; [
