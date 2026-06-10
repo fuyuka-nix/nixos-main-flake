@@ -29,7 +29,6 @@
       simplex-chat-desktop
       thunderbird
       joplin-desktop
-      syncthing
 
       anki
       seanime

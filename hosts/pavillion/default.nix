@@ -21,9 +21,13 @@
 
     secrets = {
       "ygg/private" = { };
-      "radicale-pass" = {
-	owner = config.services.radicale.user;
-	group = config.services.radicale.group;
+      "radicale-pass" = let inherit (config.services.radicale) user group; in {
+	owner = user;
+	group = group;
+      };
+      "syncthing-pass" = let inherit (config.services.syncthing) user group; in {
+	owner = user;
+	group = group;
       };
     };
   };
@@ -35,6 +39,13 @@
     acpid.enable = true;
     tlp.enable = true;
     upower.enable = true;
+
+    syncthing = {
+      enable = true;
+      guiPasswordFile = "/run/secrets/syncthing-pass";
+      overrideFolders = false;
+      overrideDevices = false;
+    };
   };
 
   programs = {
