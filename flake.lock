@@ -64,11 +64,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1781035915,
-        "narHash": "sha256-Nx9imbJp/RkjUW1vznasmvE+r/iVufj0+6ZnXEJLWis=",
+        "lastModified": 1781156412,
+        "narHash": "sha256-OVh9Ibt1m7wLvgepchVw9opBNnDt4LtvNlKynIYkV+g=",
         "owner": "rishabh5321",
         "repo": "custom-packages-flake",
-        "rev": "dddba52be2d4000984e58830084e9a4760475396",
+        "rev": "b42f6d8f9c6978763febf21fbf78df18d80ee0c9",
         "type": "github"
       },
       "original": {
@@ -80,7 +80,6 @@
     "fenix": {
       "inputs": {
         "nixpkgs": [
-          "fuyupkgs",
           "affinity-nix",
           "nixpkgs"
         ],
@@ -147,23 +146,6 @@
         "type": "github"
       }
     },
-    "fuyupkgs": {
-      "inputs": {
-        "affinity-nix": "affinity-nix",
-        "custompkgs": "custompkgs",
-        "nixpkgs": "nixpkgs_5",
-        "sops-nix": "sops-nix"
-      },
-      "locked": {
-        "path": "./packages",
-        "type": "path"
-      },
-      "original": {
-        "path": "./packages",
-        "type": "path"
-      },
-      "parent": []
-    },
     "git-hooks": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -187,7 +169,6 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
-          "fuyupkgs",
           "affinity-nix",
           "git-hooks",
           "nixpkgs"
@@ -369,7 +350,10 @@
     },
     "root": {
       "inputs": {
-        "fuyupkgs": "fuyupkgs"
+        "affinity-nix": "affinity-nix",
+        "custompkgs": "custompkgs",
+        "nixpkgs": "nixpkgs_5",
+        "sops-nix": "sops-nix"
       }
     },
     "rust-analyzer-src": {
