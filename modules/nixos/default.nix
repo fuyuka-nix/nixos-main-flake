@@ -1,15 +1,12 @@
-lib:
-(lib.genAttrs [
-  "fonts"
-  "locale-es-cr"
-  "pipewire"
-  "steam"
-  "arrpc"
-] (moduleName: ./${moduleName}.nix))
-// {
-  starship = ./starship;
-  disable-bd-prochot = ./disable-bd-prochot;
-  default = {
+{
+  den,
+  ...
+}:
+{
+  den.default.includes = [
+    (den.batteries.unfree [ "affinity-nix" "steam" "steam-unwrapped" "osu-lazer-bin" ])
+  ];
+  den.default.nixos = {
     system.stateVersion = "26.05";
     boot = {
       loader = {

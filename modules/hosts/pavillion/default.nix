@@ -1,155 +1,162 @@
 {
-  pkgs,
-  lib,
-  config,
+  inputs,
+  den,
   ...
 }:
 {
-  imports = [
-    ./users.nix
-    ./networking.nix
+  den.aspects.pavillion.includes = with den.aspects; [
+    starship.frosted-kebab
+    arrpc
+    disable-bd-prochot
+    fonts
+    locale-es-cr
+    pipewire
+    steam
   ];
 
-  modules.starship.frosted-kebab.enable = true;
+  den.aspects.pavillion.nixos = { config, pkgs, lib, ... }: {
+    imports = [
+      inputs.sops-nix.nixosModules.default
+      ./_hardware.nix
+    ];
 
-  boot.enableContainers = true;
+    sops = {
+      defaultSopsFile = ./secrets/secrets.yaml;
+      defaultSopsFormat = "yaml";
+      age.keyFile = "/home/frozenfox/.config/sops/age/keys.txt";
 
-  sops = {
-    defaultSopsFile = ./secrets/secrets.yaml;
-    defaultSopsFormat = "yaml";
-    age.keyFile = "/home/frozenfox/.config/sops/age/keys.txt";
-
-    secrets = {
-      "ygg/private" = { };
-      "radicale-pass" = let inherit (config.services.radicale) user group; in {
-	owner = user;
-	group = group;
-      };
-      "syncthing-pass" = let inherit (config.services.syncthing) user group; in {
-	owner = user;
-	group = group;
+      secrets = {
+	"ygg/private" = { };
+	"radicale-pass" = let inherit (config.services.radicale) user group; in {
+	  owner = user;
+	  group = group;
+	};
+	"syncthing-pass" = let inherit (config.services.syncthing) user group; in {
+	  owner = user;
+	  group = group;
+	};
       };
     };
-  };
 
-  services = {
-    hypridle.enable = true;
-    dbus.enable = true;
-    playerctld.enable = true;
-    acpid.enable = true;
-    tlp.enable = true;
-    upower.enable = true;
+    services = {
+      hypridle.enable = true;
+      dbus.enable = true;
+      playerctld.enable = true;
+      acpid.enable = true;
+      tlp.enable = true;
+      upower.enable = true;
 
-    syncthing = {
-      enable = true;
-      guiPasswordFile = "/run/secrets/syncthing-pass";
-      overrideFolders = false;
-      overrideDevices = false;
+      syncthing = {
+	enable = true;
+	guiPasswordFile = "/run/secrets/syncthing-pass";
+	overrideFolders = false;
+	overrideDevices = false;
+      };
     };
-  };
 
-  programs = {
-    nh.flake = "/home/frozenfox/mysystem";
-    git.enable = true;
-    hyprland = {
-      enable = true;
+    programs = {
+      nh.flake = "/home/frozenfox/mysystem";
+      git.enable = true;
+      hyprland = {
+	enable = true;
+	xwayland.enable = true;
+	withUWSM = true;
+      };
+      zsh = {
+	enable = true;
+	enableLsColors = true;
+	vteIntegration = true;
+	syntaxHighlighting.enable = true;
+	autosuggestions.enable = true;
+      };
+      hyprlock.enable = true;
       xwayland.enable = true;
-      withUWSM = true;
+      yazi.enable = true;
+      vim.enable = true;
+      localsend = {
+	enable = true;
+	openFirewall = true;
+      };
+      neovim = {
+	enable = true;
+	defaultEditor = true;
+      };
     };
-    zsh = {
-      enable = true;
-      enableLsColors = true;
-      vteIntegration = true;
-      syntaxHighlighting.enable = true;
-      autosuggestions.enable = true;
-    };
-    hyprlock.enable = true;
-    xwayland.enable = true;
-    yazi.enable = true;
-    vim.enable = true;
-    localsend = {
-      enable = true;
-      openFirewall = true;
-    };
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
-  };
 
-  environment = {
-    systemPackages = with pkgs; [
-      home-manager
-      yadm
+    environment = {
+      systemPackages = with pkgs; [
+	yadm
 
-      nixd
-      nil
-      wl-clipboard
-      inotify-tools
-      brightnessctl
-      mako
+	nixd
+	nil
+	wl-clipboard
+	inotify-tools
+	brightnessctl
+	mako
 
-      quickshell
-      rose-pine-hyprcursor
-      hyprlauncher
-      hyprsunset
-      hyprpaper
-      hyprpicker
-      hyprshot
-      kitty
-      fastfetch
+	quickshell
+	rose-pine-hyprcursor
+	hyprlauncher
+	hyprsunset
+	hyprpaper
+	hyprpicker
+	hyprshot
+	kitty
+	fastfetch
 
-      p7zip
-      imagemagick
-      ripgrep
-      btop
+	p7zip
+	imagemagick
+	ripgrep
+	btop
 
-      crosspipe
-      easyeffects
-      pavucontrol
+	crosspipe
+	easyeffects
+	pavucontrol
 
-      librewolf
-      tor-browser
-    ];
-    sessionVariables = {
-      HYPRCURSOR_THEME = "rose-pine-hyprcursor";
-      # Hyprland specific variables are defined at ~/.config/uwsm/env-hyprland (yadm)
-    };
-  };
-
-  hardware = {
-    bluetooth.enable = true;
-    graphics.enable = true;
-  };
-  fileSystems = {
-    "/".options = [
-      "compress=lzo"
-    ];
-    "/mnt/mclauncher" = {
-      inherit (config.fileSystems."/") device fsType;
-      options = [
-        "compress=lzo"
-        "subvol=mclauncher"
+	librewolf
+	tor-browser
       ];
+      sessionVariables = {
+	HYPRCURSOR_THEME = "rose-pine-hyprcursor";
+	# Hyprland specific variables are defined at ~/.config/uwsm/env-hyprland (yadm)
+      };
     };
-    "/mnt/ssdsata" = {
-      device = "/dev/disk/by-uuid/b43e0502-b5ed-4498-b491-c66fa78bddfe";
-      fsType = "btrfs";
-      options = [ "nofail" ];
+
+    hardware = {
+      bluetooth.enable = true;
+      graphics.enable = true;
     };
-    "mnt/steam" = {
-      inherit (config.fileSystems."/mnt/ssdsata") device fsType;
-      options = [
-        "compress=lzo"
-        "subvol=steam"
+
+    fileSystems = {
+      "/".options = [
+	"compress=lzo"
       ];
-    };
-    "mnt/nextcloud" = {
-      inherit (config.fileSystems."/mnt/ssdsata") device fsType;
-      options = [
-        "compress=lzo"
-        "subvol=nextcloud"
-      ];
+      "/mnt/mclauncher" = {
+	inherit (config.fileSystems."/") device fsType;
+	options = [
+	  "compress=lzo"
+	  "subvol=mclauncher"
+	];
+      };
+      "/mnt/ssdsata" = {
+	device = "/dev/disk/by-uuid/b43e0502-b5ed-4498-b491-c66fa78bddfe";
+	fsType = "btrfs";
+	options = [ "nofail" ];
+      };
+      "mnt/steam" = {
+	inherit (config.fileSystems."/mnt/ssdsata") device fsType;
+	options = [
+	  "compress=lzo"
+	  "subvol=steam"
+	];
+      };
+      "mnt/nextcloud" = {
+	inherit (config.fileSystems."/mnt/ssdsata") device fsType;
+	options = [
+	  "compress=lzo"
+	  "subvol=nextcloud"
+	];
+      };
     };
   };
 }
