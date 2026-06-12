@@ -5,6 +5,7 @@
 }:
 {
   den.aspects.pavillion.includes = with den.aspects; [
+    den.batteries.hostname
     starship.frosted-kebab
     arrpc
     disable-bd-prochot

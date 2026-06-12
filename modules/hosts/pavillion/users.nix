@@ -24,7 +24,7 @@
 	tmux
 	sops
 
-	#affinity-v3
+	affinity-v3
 	libresprite
 	libreoffice
 	obs-studio
@@ -34,17 +34,15 @@
 	joplin-desktop
 
 	anki
-	#seanime
+	seanime
 	heroic
 	vlc
 
 	osu-lazer-bin
 	prismlauncher
-	/*
 	(cataclysm-dda.withMods (_: with cdda-mods; [
 	  cc-sounds
 	]))
-	*/
       ];
     };
   };

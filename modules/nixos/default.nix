@@ -1,12 +1,19 @@
 {
   den,
+  inputs,
   ...
 }:
 {
   den.default.includes = [
-    (den.batteries.unfree [ "affinity-nix" "steam" "steam-unwrapped" "osu-lazer-bin" ])
+    (den.batteries.unfree [
+      "affinity-extracted-sources"
+      "affinity-v3"
+      "steam"
+      "steam-unwrapped"
+      "osu-lazer-bin"
+    ])
   ];
-  den.default.nixos = {
+  den.default.nixos = { pkgs, ... }: {
     system.stateVersion = "26.05";
     boot = {
       loader = {
@@ -25,6 +32,7 @@
 	keep-derivations = true
       '';
     };
+
     programs.nh = {
       enable = true;
       clean = {
@@ -32,6 +40,15 @@
 	extraArgs = "--keep 5 --keep-since 2d";
       };
     };
+
+    nixpkgs.overlays = [
+      inputs.affinity-nix.overlays.default
+      (prev: final: {
+	osu-resources = pkgs.callPackage ./../../_packages/osu-resources.nix { };
+	cdda-mods = pkgs.callPackage ./../../_packages/cdda-mods { };
+	seanime = inputs.custompkgs.packages.${final.stdenv.hostPlatform.system}.seanime;
+      })
+    ];
   };
 }
 
