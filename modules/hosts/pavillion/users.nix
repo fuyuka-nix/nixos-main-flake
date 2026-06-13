@@ -37,6 +37,7 @@
 	seanime
 	heroic
 	vlc
+	mpv
 
 	osu-lazer-bin
 	prismlauncher
