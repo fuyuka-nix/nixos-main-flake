@@ -31,6 +31,7 @@ in
     config = {
       vhosts = {
 	radicale = { };
+	seanime = { };
       };
 
       networking = {
@@ -61,6 +62,15 @@ in
 	      listen = [{ addr = "[::]"; port = 80; }];
 	      locations."/" = {
 		proxyPass = "http://127.0.0.1:5053";
+		extraConfig = ''
+		  proxy_pass_header Authorization;
+		'';
+	      };
+	    };
+	    "${seanime.ygg}" = {
+	      listen = [{ addr = "[::]"; port = 80; }];
+	      locations."/" = {
+		proxyPass = "http://127.0.0.1:43211";
 		extraConfig = ''
 		  proxy_pass_header Authorization;
 		'';
