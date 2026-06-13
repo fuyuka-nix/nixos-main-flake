@@ -59,7 +59,7 @@ in
 	  enable = true;
 	  virtualHosts = with config.vhosts; {
 	    "${radicale.ygg}" = {
-	      listen = [{ addr = "[::]"; port = 80; }];
+	      listen = [{ addr = "[${radicale.ygg}]"; port = 80; }];
 	      locations."/" = {
 		proxyPass = "http://127.0.0.1:5053";
 		extraConfig = ''
@@ -68,12 +68,10 @@ in
 	      };
 	    };
 	    "${seanime.ygg}" = {
-	      listen = [{ addr = "[::]"; port = 80; }];
+	      listen = [{ addr = "[${seanime.ygg}]"; port = 80; }];
 	      locations."/" = {
-		proxyPass = "http://127.0.0.1:43211";
-		extraConfig = ''
-		  proxy_pass_header Authorization;
-		'';
+		proxyPass = "http://localhost:43211";
+		proxyWebsockets = true;
 	      };
 	    };
 	  };
