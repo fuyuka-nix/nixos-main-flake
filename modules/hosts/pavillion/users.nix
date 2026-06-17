@@ -32,6 +32,7 @@
 	simplex-chat-desktop
 	thunderbird
 	joplin-desktop
+	monero-gui
 
 	anki
 	seanime
