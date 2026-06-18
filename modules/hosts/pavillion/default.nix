@@ -129,33 +129,29 @@
     };
 
     fileSystems = {
-      "/".options = [
-	"compress=lzo"
-      ];
-      "/mnt/mclauncher" = {
-	inherit (config.fileSystems."/") device fsType;
+      "/" = {
+	device = "/dev/disk/by-uuid/02672b4c-3a47-4cad-a086-6707475ad0d4";
+	fsType = "btrfs";
 	options = [
+	  "subvol=@"
 	  "compress=lzo"
-	  "subvol=mclauncher"
 	];
       };
+
+      "/boot" = {
+	device = "/dev/disk/by-uuid/68DA-21E0";
+	fsType = "vfat";
+	options = [
+	  "fmask=0077"
+	  "dmask=0077"
+	];
+      };
+
       "/mnt/ssdsata" = {
 	device = "/dev/disk/by-uuid/b43e0502-b5ed-4498-b491-c66fa78bddfe";
 	fsType = "btrfs";
-	options = [ "nofail" ];
-      };
-      "mnt/steam" = {
-	inherit (config.fileSystems."/mnt/ssdsata") device fsType;
 	options = [
-	  "compress=lzo"
-	  "subvol=steam"
-	];
-      };
-      "mnt/nextcloud" = {
-	inherit (config.fileSystems."/mnt/ssdsata") device fsType;
-	options = [
-	  "compress=lzo"
-	  "subvol=nextcloud"
+	  "nofail"
 	];
       };
     };
