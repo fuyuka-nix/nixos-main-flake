@@ -11,6 +11,7 @@
     users.users.frozenfox = {
       useDefaultShell = true;
       isNormalUser = true;
+      hashedPasswordFile = "/persistent/frozenfox-passwd";
       extraGroups = [
 	"input"
 	"wheel"
