@@ -32,10 +32,12 @@
 	  owner = user;
 	  group = group;
 	};
+	/*
 	"syncthing-pass" = let inherit (config.services.syncthing) user group; in {
 	  owner = user;
 	  group = group;
 	};
+	*/
       };
     };
 
