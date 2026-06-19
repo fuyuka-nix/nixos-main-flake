@@ -46,6 +46,7 @@
       (prev: final: {
 	osu-resources = pkgs.callPackage ./../../_packages/osu-resources.nix { };
 	cdda-mods = pkgs.callPackage ./../../_packages/cdda-mods { };
+	librewolf = pkgs.callPackage ./../../_packages/librewolf.nix { };
 	seanime = inputs.custompkgs.packages.${final.stdenv.hostPlatform.system}.seanime;
       })
     ];

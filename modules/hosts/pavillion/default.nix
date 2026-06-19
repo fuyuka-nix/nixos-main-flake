@@ -98,6 +98,7 @@
 	pavucontrol
 
 	tor-browser
+	librewolf
       ];
       sessionVariables = {
 	HYPRCURSOR_THEME = "rose-pine-hyprcursor";
