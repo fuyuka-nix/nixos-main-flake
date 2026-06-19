@@ -33,12 +33,13 @@
         ];
 
         users.frozenfox = {
-          files = [];
+          files = [
+	    ".zshrc"
+	    ".histfile"
+	  ];
           directories = [
             ".local/state/wireplumber"
             ".ssh"
-	    ".zshrc"
-	    ".histfile"
             ".config/sops"
             ".config/hypr"
             ".config/yadm"
@@ -58,6 +59,8 @@
 	    ".config/StardewValley"
 	    ".config/Seanime"
 	    ".config/uwsm"
+	    ".local/share/simplex"
+	    ".local/share/yadm"
             ".gnupg"
             ".bitmonero"
             ".cataclysm-dda"
