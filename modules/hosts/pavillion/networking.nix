@@ -91,7 +91,7 @@ in
 	  openMulticastPort = true;
 	  settings = {
 	    IfName = "ygg0";
-	    PrivateKeyPath = "/run/secrets/ygg/private";
+	    PrivateKeyPath = "/var/secrets/ygg/private";
 	    Peers = [
 	      "tcp://satori.nadeko.net:44441"
 	      "tcp://ygg.nadeko.net:44441"
@@ -105,7 +105,7 @@ in
 	    server.hosts = [ "0.0.0.0:5053" ];
 	    auth = {
 	      type = "htpasswd";
-	      htpasswd_filename = "/run/secrets/radicale-pass";
+	      htpasswd_filename = "/var/secrets/radicale-pass";
 	      htpasswd_encryption = "plain";
 	    };
 	  };

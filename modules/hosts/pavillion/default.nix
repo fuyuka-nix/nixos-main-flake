@@ -17,29 +17,8 @@
 
   den.aspects.pavillion.nixos = { config, pkgs, lib, ... }: {
     imports = [
-      inputs.sops-nix.nixosModules.default
       ./_hardware.nix
     ];
-
-    sops = {
-      defaultSopsFile = ./secrets/secrets.yaml;
-      defaultSopsFormat = "yaml";
-      age.keyFile = "/home/frozenfox/.config/sops/age/keys.txt";
-
-      secrets = {
-	"ygg/private" = { };
-	"radicale-pass" = let inherit (config.services.radicale) user group; in {
-	  owner = user;
-	  group = group;
-	};
-	/*
-	"syncthing-pass" = let inherit (config.services.syncthing) user group; in {
-	  owner = user;
-	  group = group;
-	};
-	*/
-      };
-    };
 
     services = {
       hypridle.enable = true;
@@ -89,6 +68,7 @@
 
     environment = {
       systemPackages = with pkgs; [
+	sops
 	yadm
 
 	nixd

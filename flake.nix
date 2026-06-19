@@ -12,7 +12,6 @@
     preservation.url = "github:nix-community/preservation";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
-    sops-nix.url = "github:Mic92/sops-nix";
     affinity-nix.url = "github:mrshmllow/affinity-nix";
     custompkgs.url = "github:rishabh5321/custom-packages-flake";
   };
