@@ -38,13 +38,13 @@
 	  }
         ];
         directories = [
+	  { directory = "/run/secrets"; inInitrd = true; }
           "/var/lib/systemd/timers"
           "/var/lib/nixos"
           "/var/log"
           "/var/lib/bluetooth"
           "/etc/NetworkManager/system-connections"
           "/etc/nixos"
-	  "/run/secrets"
         ];
 
         users.frozenfox = {
@@ -53,8 +53,9 @@
 	  ];
           directories = [
 	    { directory = ".ssh"; mode = "0700"; }
+            { directory = ".config/sops"; inInitrd = true; }
+            { directory = ".gnupg"; inInitrd = true; }
             ".local/state/wireplumber"
-            ".config/sops"
             ".config/hypr"
             ".config/yadm"
             ".config/kitty"
@@ -75,7 +76,6 @@
 	    ".config/uwsm"
 	    ".local/share/simplex"
 	    ".local/share/yadm"
-            ".gnupg"
             ".bitmonero"
             ".cataclysm-dda"
             ".thunderbird"
