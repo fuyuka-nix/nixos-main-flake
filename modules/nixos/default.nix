@@ -13,7 +13,8 @@
       "osu-lazer-bin"
     ])
     (den.batteries.insecure [
-      "librewolf"
+      "librewolf-151.0.2-1"
+      "librewolf-unwrapped-151.0.2-1"
     ])
   ];
   den.default.nixos = { pkgs, ... }: {
