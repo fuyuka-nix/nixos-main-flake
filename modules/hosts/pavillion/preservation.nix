@@ -30,7 +30,6 @@
           "/var/lib/bluetooth"
           "/etc/NetworkManager/system-connections"
           "/etc/nixos"
-          "/tmp"
         ];
 
         users.frozenfox = {
