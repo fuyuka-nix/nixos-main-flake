@@ -14,19 +14,33 @@
       "/persistent".neededForBoot = true;
     };
 
+    systemd.services.systemd-machine-id-commit = {
+      unitConfig.ConditionPathIsMountPoint = [
+	""
+	"/persistent/etc/machine-id"
+      ];
+      serviceConfig.ExecStart = [
+	""
+	"systemd-machine-id-setup --commit --root /persistent"
+      ];
+    };
+
     preservation = {
       enable = true;
 
       preserveAt."/persistent" = {
         files = [
-          { file = "/etc/machine-id"; inInitrd = true; }
+          {
+	    file = "/etc/machine-id";
+	    inInitrd = true;
+	    how = "symlink";
+	    configureParent = true;
+	  }
         ];
         directories = [
-          # recommended
           "/var/lib/systemd/timers"
           "/var/lib/nixos"
           "/var/log"
-          # extras
           "/var/lib/bluetooth"
           "/etc/NetworkManager/system-connections"
           "/etc/nixos"
@@ -35,11 +49,10 @@
         users.frozenfox = {
           files = [
 	    ".zshrc"
-	    ".histfile"
 	  ];
           directories = [
+	    { directory = ".ssh"; mode = "0700"; }
             ".local/state/wireplumber"
-            ".ssh"
             ".config/sops"
             ".config/hypr"
             ".config/yadm"
@@ -74,6 +87,15 @@
           ];
         };
       };
+    };
+
+    systemd.tmpfiles.settings.preservation = let
+      use-as = { user = "frozenfox"; group = "users"; mode = "0755"; };
+    in {
+      "/home/frozenfox/.config".d = use-as;
+      "/home/frozenfox/.local".d = use-as;
+      "/home/frozenfox/.local/share".d = use-as;
+      "/home/frozenfox/.local/state".d = use-as;
     };
   };
 }
