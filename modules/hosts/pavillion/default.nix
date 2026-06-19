@@ -48,7 +48,7 @@
       upower.enable = true;
 
       syncthing = {
-	enable = true;
+	#enable = true;
 	guiPasswordFile = "/run/secrets/syncthing-pass";
 	overrideFolders = false;
 	overrideDevices = false;
@@ -56,7 +56,7 @@
     };
 
     programs = {
-      nh.flake = "/home/frozenfox/mysystem";
+      nh.flake = "/home/frozenfox/Desktop/nixos-main-flake";
       git.enable = true;
       hyprland = {
 	enable = true;
@@ -127,35 +127,14 @@
       bluetooth.enable = true;
       graphics.enable = true;
     };
-
-    fileSystems = {
-      "/" = {
-	device = "/dev/disk/by-uuid/02672b4c-3a47-4cad-a086-6707475ad0d4";
-	fsType = "btrfs";
-	options = [
-	  "subvol=@"
-	  "compress=lzo"
-	];
-      };
-
-      "/boot" = {
-	device = "/dev/disk/by-uuid/68DA-21E0";
-	fsType = "vfat";
-	options = [
-	  "fmask=0077"
-	  "dmask=0077"
-	];
-      };
-
-      /*
-      "/mnt/ssdsata" = {
-	device = "/dev/disk/by-uuid/b43e0502-b5ed-4498-b491-c66fa78bddfe";
-	fsType = "btrfs";
-	options = [
-	  "nofail"
-	];
-      };
-      */
+    /*
+    "/mnt/ssdsata" = {
+      device = "/dev/disk/by-uuid/b43e0502-b5ed-4498-b491-c66fa78bddfe";
+      fsType = "btrfs";
+      options = [
+        "nofail"
+      ];
     };
+    */
   };
 }

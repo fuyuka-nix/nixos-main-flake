@@ -15,7 +15,6 @@
 	"input"
 	"wheel"
 	"networkmanager"
-	"syncthing"
       ];
       packages = with pkgs; [
 	android-tools
