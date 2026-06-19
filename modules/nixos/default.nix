@@ -12,10 +12,6 @@
       "steam-unwrapped"
       "osu-lazer-bin"
     ])
-    (den.batteries.insecure [
-      "librewolf-151.0.2-1"
-      "librewolf-unwrapped-151.0.2-1"
-    ])
   ];
   den.default.nixos = { pkgs, ... }: {
     system.stateVersion = "26.05";

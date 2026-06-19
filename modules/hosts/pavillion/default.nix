@@ -82,6 +82,7 @@
 	enable = true;
 	defaultEditor = true;
       };
+      firefox.enable = true;
     };
 
     environment = {
@@ -114,7 +115,6 @@
 	easyeffects
 	pavucontrol
 
-	librewolf
 	tor-browser
       ];
       sessionVariables = {
