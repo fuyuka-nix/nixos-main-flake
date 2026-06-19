@@ -8,6 +8,10 @@
     nix.settings.allowed-users = [ "frozenfox" ];
     users.defaultUserShell = pkgs.zsh;
 
+    users.users.root = {
+      hashedPasswordFile = "/persistent/root-passwd";
+    };
+
     users.users.frozenfox = {
       useDefaultShell = true;
       isNormalUser = true;
