@@ -44,6 +44,7 @@
           "/var/lib/bluetooth"
           "/etc/NetworkManager/system-connections"
           "/etc/nixos"
+	  "/run/secrets"
         ];
 
         users.frozenfox = {
