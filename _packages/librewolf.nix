@@ -16,7 +16,7 @@ in
 appimageTools.wrapType2 {
   inherit pname version src;
 
-  extraPkgs = pkgs: [ pkgs.speechd ];
+  extraPkgs = pkgs: with pkgs; [ speechd ffmpeg_4 ];
 
   extraInstallCommands = ''
     install -m 444 -D ${appimageContents}/net.librewolf.LibreWolf.desktop $out/share/applications/net.librewolf.LibreWolf.desktop
