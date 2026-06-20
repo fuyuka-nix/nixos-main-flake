@@ -63,7 +63,6 @@
 	enable = true;
 	defaultEditor = true;
       };
-      firefox.enable = true;
     };
 
     environment = {
