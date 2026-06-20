@@ -47,10 +47,13 @@
 	  }
         ];
         directories = [
+	  {
+	    directory = "/var/lib/radicale";
+	    inherit (config.services.radicale) user group;
+	  }
           "/var/lib/systemd/timers"
           "/var/lib/nixos"
           "/var/lib/bluetooth"
-	  "/var/lib/radicale"
           "/var/log"
           "/etc/NetworkManager/system-connections"
           "/etc/nixos"
