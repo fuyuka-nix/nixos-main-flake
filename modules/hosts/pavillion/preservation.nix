@@ -49,8 +49,9 @@
         directories = [
           "/var/lib/systemd/timers"
           "/var/lib/nixos"
-          "/var/log"
           "/var/lib/bluetooth"
+	  "/var/lib/radicale"
+          "/var/log"
           "/etc/NetworkManager/system-connections"
           "/etc/nixos"
         ];
