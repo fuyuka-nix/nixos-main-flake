@@ -35,6 +35,7 @@
 
 	simplex-chat-desktop
 	thunderbird
+	dino
 	joplin-desktop
 	monero-gui
 
