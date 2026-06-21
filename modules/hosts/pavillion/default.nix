@@ -22,6 +22,7 @@
 
     boot.loader.limine = {
       enable = true;
+      secureBoot.enable = true;
       style = {
 	#wallpapers = [];
 	wallpaperStyle = "centered";
