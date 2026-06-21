@@ -46,7 +46,7 @@
 	mpv
 
 	osu-lazer-bin
-	prismlauncher
+	freesmlauncher
 	(cataclysm-dda.withMods (_: with cdda-mods; [
 	  cc-sounds
 	]))

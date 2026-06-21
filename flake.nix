@@ -14,5 +14,6 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     affinity-nix.url = "github:mrshmllow/affinity-nix";
     custompkgs.url = "github:rishabh5321/custom-packages-flake";
+    freesm.url = "github:FreesmTeam/FreesmLauncher";
   };
 }

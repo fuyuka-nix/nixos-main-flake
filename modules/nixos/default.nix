@@ -43,6 +43,7 @@
 
     nixpkgs.overlays = [
       inputs.affinity-nix.overlays.default
+      inputs.freesm.overlays.default
       (prev: final: {
 	osu-resources = pkgs.callPackage ./../../_packages/osu-resources.nix { };
 	cdda-mods = pkgs.callPackage ./../../_packages/cdda-mods { };
