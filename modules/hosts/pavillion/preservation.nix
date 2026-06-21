@@ -68,6 +68,9 @@
 	    { directory = ".ssh"; mode = "0700"; }
             { directory = ".config/sops"; inInitrd = true; mode = "0700"; }
             { directory = ".gnupg"; inInitrd = true; }
+	    ".cache"
+	    ".android"
+	    ".local/share"
             ".local/state/wireplumber"
             ".config/hypr"
             ".config/yadm"
@@ -76,6 +79,7 @@
 	    ".config/Joplin"
 	    ".config/joplin"
 	    ".config/joplin-desktop"
+	    "JoplinBackup"
 	    ".config/simplex"
 	    ".config/quickshell"
 	    ".config/librewolf"
@@ -87,12 +91,12 @@
 	    ".config/StardewValley"
 	    ".config/Seanime"
 	    ".config/uwsm"
-	    ".local/share/simplex"
-	    ".local/share/yadm"
-	    ".local/share/FreesmLauncher"
             ".bitmonero"
+	    "Monero"
             ".cataclysm-dda"
             ".thunderbird"
+	    ".tor"
+	    ".tor project"
             "Documents"
             "Downloads"
             "Desktop"
