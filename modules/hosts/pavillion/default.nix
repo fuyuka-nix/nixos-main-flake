@@ -20,6 +20,10 @@
       ./_hardware.nix
     ];
 
+    boot.loader.limine = {
+      enable = true;
+    };
+
     services = {
       hypridle.enable = true;
       dbus.enable = true;
@@ -70,6 +74,7 @@
 	sops
 	yadm
 
+	sbctl
 	nixd
 	nil
 	wl-clipboard
