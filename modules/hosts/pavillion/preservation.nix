@@ -54,6 +54,7 @@
           "/var/lib/systemd/timers"
           "/var/lib/nixos"
           "/var/lib/bluetooth"
+	  "/var/lib/sbctl"
           "/var/log"
           "/etc/NetworkManager/system-connections"
           "/etc/nixos"

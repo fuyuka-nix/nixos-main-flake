@@ -22,6 +22,10 @@
 
     boot.loader.limine = {
       enable = true;
+      style = {
+	#wallpapers = [];
+	wallpaperStyle = "centered";
+      };
     };
 
     services = {
