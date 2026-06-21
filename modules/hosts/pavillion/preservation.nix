@@ -88,6 +88,7 @@
 	    ".config/uwsm"
 	    ".local/share/simplex"
 	    ".local/share/yadm"
+	    ".local/share/FreesmLauncher"
             ".bitmonero"
             ".cataclysm-dda"
             ".thunderbird"
