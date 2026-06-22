@@ -27,6 +27,7 @@
 	jq
 	tmux
 	sops
+	keepassxc
 
 	affinity-v3
 	libresprite
