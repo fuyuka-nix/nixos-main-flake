@@ -80,6 +80,7 @@
 	yadm
 
 	sbctl
+	lynis
 	nixd
 	nil
 	wl-clipboard
