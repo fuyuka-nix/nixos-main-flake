@@ -63,6 +63,8 @@
         users.frozenfox = {
           files = [
 	    ".zshrc"
+	    ".histfile"
+	    ".gitconfig"
 	  ];
           directories = [
 	    { directory = ".ssh"; mode = "0700"; }
