@@ -94,9 +94,7 @@
     },
     "disko": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1781152676,
@@ -185,7 +183,7 @@
       "inputs": {
         "libnbtplusplus": "libnbtplusplus",
         "nix-filter": "nix-filter",
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_6"
       },
       "locked": {
         "lastModified": 1781648727,
@@ -386,6 +384,22 @@
     },
     "nixpkgs_5": {
       "locked": {
+        "lastModified": 1782175435,
+        "narHash": "sha256-EMzXKmnOtBQ2MnvpiNOm7E+kOMvdPrIKaeg52Tip2Uk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "89570f24e97e614aa34aa9ab1c927b6578a43775",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_6": {
+      "locked": {
         "lastModified": 1781074563,
         "narHash": "sha256-md8WlXOlfnIeHeOScMTTHFyf2d6iaTwPl2apR5EQ3P4=",
         "owner": "NixOS",
@@ -400,7 +414,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_7": {
       "locked": {
         "lastModified": 1781607440,
         "narHash": "sha256-rxO+uc/KFbSJp+pgyXRuAX6QlG9hJdnt0BXpEQRXY+U=",
@@ -449,21 +463,6 @@
         "type": "github"
       }
     },
-    "preservation": {
-      "locked": {
-        "lastModified": 1757436102,
-        "narHash": "sha256-mMI9IanU+Xw+pVogD2oT0I2kTmvz2Un/Apc5+CwUpEY=",
-        "owner": "nix-community",
-        "repo": "preservation",
-        "rev": "93416f4614ad2dfed5b0dcf12f27e57d27a5ab11",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "preservation",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "affinity-nix": "affinity-nix",
@@ -472,8 +471,7 @@
         "disko": "disko",
         "freesm": "freesm",
         "import-tree": "import-tree",
-        "nixpkgs": "nixpkgs_6",
-        "preservation": "preservation"
+        "nixpkgs": "nixpkgs_7"
       }
     },
     "rust-analyzer-src": {

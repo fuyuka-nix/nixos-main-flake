@@ -7,16 +7,6 @@
   den.aspects.pavillion.nixos = {
     imports = [ inputs.disko.nixosModules.disko ];
 
-    disko.devices.nodev = {
-      "/" = {
-        fsType = "tmpfs";
-        mountOptions = [
-          "size=30%"
-          "mode=755"
-        ];
-      };
-    };
-
     disko.devices.disk.main = {
       type = "disk";
       device = "/dev/nvme0n1";
@@ -48,22 +38,24 @@
               content = {
                 type = "btrfs";
                 extraArgs = [ "-f" ];
-                subvolumes = {
-                  "/persistent" = {
-                    mountpoint = "/persistent";
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                  };
-                  "/nix" = {
+                subvolumes = let mountOptions = [ "compress=zstd" "noatime" ]; in {
+		  "/@" = {
+		    mountpoint = "/";
+		    inherit mountOptions;
+		  };
+                  "/@nix" = {
                     mountpoint = "/nix";
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
+		    inherit mountOptions;
                   };
-                  "/swap" = {
+		  "/@var" = {
+		    mountpoint = "/var";
+		    inherit mountOptions;
+		  };
+		  "/@home" = {
+		    mountpoint = "/home";
+		    inherit mountOptions;
+		  };
+                  "/@swap" = {
                     mountpoint = "/.swapvol";
                     swap.swapfile.size = "16G";
                   };
