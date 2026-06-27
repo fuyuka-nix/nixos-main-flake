@@ -7,6 +7,8 @@
   imports = [ inputs.den.flakeModule ];
 
   den.hosts.x86_64-linux = {
-    pavillion.users.frozenfox = { };
+    pavillion.users.frozenfox = {
+      classes = [ "maid" ];
+    };
   };
 }

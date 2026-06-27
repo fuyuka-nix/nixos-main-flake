@@ -1,0 +1,32 @@
+[user]
+  name = Fuyuka.nix
+  email = fuyuka_nix@disroot.org
+
+[core]
+  compression = 9
+  whitespace = error
+  preloadindex = true
+
+[init]
+  defaultBranch = main
+
+[status]
+  branch = true
+  showStash = true
+  showUntrackedFiles = all
+
+[pager]
+  diff = diff-so-fancy | $PAGER
+
+[colors "diff"]
+  meta = black bold
+  frag = magenta
+  context = white
+  whitespace = yellow reverse
+  old = red
+
+[url "git@github.com:"]
+  insteadOf = "gh:"
+
+[url "ssh://git@codeberg.org/"]
+  insteadOf = "cb:"

@@ -1,9 +1,15 @@
 {
-  pkgs,
   den,
   ...
 }:
 {
+  den.aspects.frozenfox = {
+    maid = {
+      file.home = {
+	".zshrc".source = ./zshrc;
+      };
+    };
+  };
   den.aspects.pavillion.nixos = { pkgs, ... }: {
     nix.settings.allowed-users = [ "frozenfox" ];
     users.defaultUserShell = pkgs.zsh;
