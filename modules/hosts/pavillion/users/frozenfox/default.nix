@@ -8,6 +8,11 @@
       file.home = {
 	".zshrc".source = ./zshrc;
       };
+
+      dconf.settings = {
+	"/org/gnome/desktop/interface/color-scheme" = "prefer-dark";
+	"/org/gnome/desktop/interface/icon-theme" = "Adwaita";
+      };
     };
   };
   den.aspects.pavillion.nixos = { pkgs, ... }: {
