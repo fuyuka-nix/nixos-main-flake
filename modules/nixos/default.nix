@@ -11,6 +11,7 @@
       "steam"
       "steam-unwrapped"
       "osu-lazer-bin"
+      "osu-resources"
     ])
   ];
   den.default.nixos = { pkgs, ... }: {
