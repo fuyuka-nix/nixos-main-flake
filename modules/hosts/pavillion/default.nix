@@ -120,14 +120,12 @@
       bluetooth.enable = true;
       graphics.enable = true;
     };
-    /*
-    "/mnt/ssdsata" = {
+    fileSystems."/mnt/ssd" = {
       device = "/dev/disk/by-uuid/b43e0502-b5ed-4498-b491-c66fa78bddfe";
       fsType = "btrfs";
       options = [
         "nofail"
       ];
     };
-    */
   };
 }
