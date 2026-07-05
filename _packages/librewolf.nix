@@ -4,7 +4,7 @@
 }:
 let
   pname = "librewolf";
-  version = "152.0.2-1";
+  version = "152.0.4-1";
 
   src = fetchurl {
     url = "https://dl.librewolf.net/librewolf/${version}/librewolf-${version}-linux-x86_64-appimage.AppImage";
