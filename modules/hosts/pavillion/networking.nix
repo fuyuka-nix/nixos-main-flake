@@ -32,6 +32,7 @@ in
       vhosts = {
 	radicale = { };
 	seanime = { };
+	glance = { };
       };
 
       networking = {
@@ -72,6 +73,12 @@ in
 	      locations."/" = {
 		proxyPass = "http://localhost:43211";
 		proxyWebsockets = true;
+	      };
+	    };
+	    "${glance.ygg}" = {
+	      listen = [{ addr = "[${glance.ygg}]"; port = 80; }];
+	      locations."/" = {
+		proxyPass = "http://localhost:5054";
 	      };
 	    };
 	  };
