@@ -8,7 +8,7 @@ let
 
   src = fetchurl {
     url = "https://dl.librewolf.net/librewolf/${version}/librewolf-${version}-linux-x86_64-appimage.AppImage";
-    hash = "sha256-dG6r9ULvl0jPgnGPrbmdOUjNwLk39FYDauAFjw5FQPE=";
+    hash = "sha256-ejCa/LiKs5PzFvz8BqO4YMmMiKKI/Hrt7LkzbB6FTbg=";
   };
 
   appimageContents = appimageTools.extract { inherit pname version src; };
