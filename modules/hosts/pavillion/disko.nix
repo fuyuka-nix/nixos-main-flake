@@ -7,63 +7,94 @@
   den.aspects.pavillion.nixos = {
     imports = [ inputs.disko.nixosModules.disko ];
 
-    disko.devices.disk.main = {
-      type = "disk";
-      device = "/dev/nvme0n1";
-      content = {
-        type = "gpt";
-        partitions = {
-          boot = {
-            name = "boot";
-            size = "1M";
-            type = "EF02";
-          };
-          esp = {
-            name = "ESP";
-            size = "1G";
-            type = "EF00";
-            content = {
-              type = "filesystem";
-              format = "vfat";
-              mountpoint = "/boot";
-              mountOptions = [ "umask=0077" ];
-            };
-          };
-          luks = {
-            size = "100%";
-            content = {
-              type = "luks";
-              name = "crypted";
-              settings.allowDiscards = true;
-              content = {
-                type = "btrfs";
-                extraArgs = [ "-f" ];
-                subvolumes = let mountOptions = [ "compress=zstd" "noatime" ]; in {
-		  "/@" = {
-		    mountpoint = "/";
+    disko.devices.disk = {
+      main = {
+	type = "disk";
+	device = "/dev/nvme0n1";
+	content = {
+	  type = "gpt";
+	  partitions = {
+	    boot = {
+	      name = "boot";
+	      size = "1M";
+	      type = "EF02";
+	    };
+	    esp = {
+	      name = "ESP";
+	      size = "1G";
+	      type = "EF00";
+	      content = {
+		type = "filesystem";
+		format = "vfat";
+		mountpoint = "/boot";
+		mountOptions = [ "umask=0077" ];
+	      };
+	    };
+	    luks = {
+	      size = "100%";
+	      content = {
+		type = "luks";
+		name = "crypted";
+		settings.allowDiscards = true;
+		content = {
+		  type = "btrfs";
+		  extraArgs = [ "-f" ];
+		  subvolumes = let mountOptions = [ "compress=zstd" "noatime" ]; in {
+		    "/@" = {
+		      mountpoint = "/";
+		      inherit mountOptions;
+		    };
+		    "/@nix" = {
+		      mountpoint = "/nix";
+		      inherit mountOptions;
+		    };
+		    "/@var" = {
+		      mountpoint = "/var";
+		      inherit mountOptions;
+		    };
+		    "/@home" = {
+		      mountpoint = "/home";
+		      inherit mountOptions;
+		    };
+		    "/@swap" = {
+		      mountpoint = "/.swapvol";
+		      swap.swapfile.size = "16G";
+		    };
+		  };
+		};
+	      };
+	    };
+	  };
+	};
+      };
+      xtra = {
+	type = "disk";
+	device = "/dev/sda";
+	content = {
+	  type = "gpt";
+	  partitions.luks = {
+	    size = "100%";
+	    content = {
+	      type = "luks";
+	      name = "xtra-crypt";
+	      settings.allowDiscards = true;
+	      content = {
+		type = "btrfs";
+		extraArgs = [ "-f" ];
+		subvolumes = let mountOptions = [ "compress=zstd" "noatime" ]; in {
+		  "/@gaming" = {
+		    mountpoint = "/gaming";
 		    inherit mountOptions;
 		  };
-                  "/@nix" = {
-                    mountpoint = "/nix";
-		    inherit mountOptions;
-                  };
-		  "/@var" = {
-		    mountpoint = "/var";
+		  "/@nextcloud" = {
+		    mountpoint = "/srv/nextcloud";
 		    inherit mountOptions;
 		  };
-		  "/@home" = {
-		    mountpoint = "/home";
-		    inherit mountOptions;
-		  };
-                  "/@swap" = {
-                    mountpoint = "/.swapvol";
-                    swap.swapfile.size = "16G";
-                  };
-                };
-              };
-            };
-          };
-        };
+		};
+	      };
+	    };
+	  };
+	};
       };
     };
   };
