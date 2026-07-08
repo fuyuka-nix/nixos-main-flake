@@ -10,5 +10,8 @@
     pavillion.users.frozenfox = {
       classes = [ "maid" ];
     };
+    T14-4.users.foxnix = {
+      classes = [ "maid" ];
+    };
   };
 }

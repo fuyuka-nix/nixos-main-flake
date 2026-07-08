@@ -1,0 +1,71 @@
+{
+  inputs,
+  den,
+  ...
+}:
+{
+  den.aspects.T14-4.nixos = {
+    imports = [ inputs.disko.nixosModules.disko ];
+    fileSystems."/nix".neededForBoot = true;
+
+    disko.devices.disk.main = {
+      type = "disk";
+      device = "/dev/nvme0n1";
+      content = {
+        type = "gpt";
+        partitions = {
+          boot = {
+            name = "boot";
+            size = "1M";
+            type = "EF02";
+          };
+          esp = {
+            name = "ESP";
+            size = "1G";
+            type = "EF00";
+            content = {
+              type = "filesystem";
+              format = "vfat";
+              mountpoint = "/boot";
+              mountOptions = [ "umask=0077" ];
+            };
+          };
+          luks = {
+            size = "100%";
+            content = {
+              type = "luks";
+              name = "crypted";
+              settings.allowDiscards = true;
+              content = {
+                type = "btrfs";
+                extraArgs = [ "-f" ];
+                subvolumes = let mountOptions = [ "compress=zstd" "noatime" ]; in {
+                  "/@" = {
+                    mountpoint = "/";
+                    inherit mountOptions;
+                  };
+                  "/@nix" = {
+                    mountpoint = "/nix";
+                    inherit mountOptions;
+                  };
+                  "/@var" = {
+                    mountpoint = "/var";
+                    inherit mountOptions;
+                  };
+                  "/@home" = {
+                    mountpoint = "/home";
+                    inherit mountOptions;
+                  };
+                  "/@swap" = {
+                    mountpoint = "/.swapvol";
+                    swap.swapfile.size = "16G";
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+}

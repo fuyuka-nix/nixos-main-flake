@@ -1,12 +1,14 @@
 {
+  lib,
   den,
   ...
 }:
 let
-  toIpv6Address = prefix64: seed: seed
-    |> builtins.hashString "sha256"
-    |> (x: map (i: builtins.substring (4 * i) 4 x) [ 0 1 2 3 ])
-    |> (x: builtins.concatStringsSep ":" ([ prefix64 ] ++ x));
+  toIpv6Address = prefix64: seed: lib.pipe seed [
+    (builtins.hashString "sha256")
+    (x: map (i: builtins.substring (4 * i) 4 x) [ 0 1 2 3 ])
+    (x: builtins.concatStringsSep ":" ([ prefix64 ] ++ x))
+  ];
   yggPrefix = "300:3467:ae65:977a";
   yggAddr = "200:3467:ae65:977a:be15:dd9a:53c4:6964";
   toIpv6Address' = toIpv6Address yggPrefix;
@@ -17,7 +19,7 @@ in
       vhosts = lib.mkOption {
 	description = "Attrset of HTTP virtual-hosts to create Yggdrasil addresses for.";
 	type = with lib.types;
-	  attrsOf <| submodule ({ name, ... }: {
+	  attrsOf (submodule ({ name, ... }: {
 	    options = {
 	      ygg = lib.mkOption {
 		description = "Yggdrasil address to create for this virtual-host";
@@ -25,7 +27,7 @@ in
 		default = toIpv6Address' name;
 	      };
 	    };
-	  });
+	  }));
       };
     };
     config = {
@@ -48,10 +50,10 @@ in
 	  address = yggAddr;
 	  prefixLength = 128;
 	}]
-	++ (config.vhosts |> lib.mapAttrsToList (_: { ygg, ... }: {
+	++ (config.vhosts (lib.mapAttrsToList (_: { ygg, ... }: {
 	  address = ygg;
 	  prefixLength = 64;
-	}));
+	})));
       };
 
       services = {
