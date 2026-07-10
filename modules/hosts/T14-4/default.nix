@@ -33,6 +33,7 @@
     services.desktopManager.gnome.enable = true;
 
     programs = {
+      nh.flake = "/etc/nixos";
       git.enable = true;
       zsh = {
         enable = true;
