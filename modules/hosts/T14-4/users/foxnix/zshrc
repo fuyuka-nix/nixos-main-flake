@@ -13,3 +13,5 @@ alias gr="git reset"
 alias grs="git reset --soft"
 alias grh="git reset --hard"
 alias grb="git rebase"
+
+alias cdrf="cd /home/foxnix/.config/nixos"
