@@ -102,6 +102,9 @@
       pavucontrol
       tor-browser
       librewolf
+      yadm
+      nix-update
+      hyprshutdown
     ];
   };
 }
