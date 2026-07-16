@@ -4,11 +4,11 @@
 }:
 let
   pname = "librewolf";
-  version = "152.0.4-1";
+  version = "152.0.6-1";
 
   src = fetchurl {
     url = "https://dl.librewolf.net/librewolf/${version}/librewolf-${version}-linux-x86_64-appimage.AppImage";
-    hash = "sha256-ejCa/LiKs5PzFvz8BqO4YMmMiKKI/Hrt7LkzbB6FTbg=";
+    hash = "sha256-KTd95zzCHj5T7rFaa3guApJqUfuW4i/13uYg4gUi5NY=";
   };
 
   appimageContents = appimageTools.extract { inherit pname version src; };
