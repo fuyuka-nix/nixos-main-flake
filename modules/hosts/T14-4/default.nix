@@ -16,7 +16,19 @@
   den.aspects.T14-4.nixos = { config, lib, pkgs, ... }: {
     imports = [
       ./_hardware.nix
+      inputs.sops-nix.nixosModules.sops
     ];
+
+    sops = {
+      defaultSopsFile = ./secrets/secrets.yaml;
+      defaultSopsFormat = "yaml";
+      age = {
+        keyFile = "/home/foxnix/.config/sops/age/keys.txt";
+      };
+      secrets = {
+        "ygg/private" = {};
+      };
+    };
 
     boot.loader.limine = {
       enable = true;
