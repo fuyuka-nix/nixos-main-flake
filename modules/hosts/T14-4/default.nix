@@ -11,6 +11,7 @@
     locale-es-cr
     pipewire
     steam
+    yggdrasil
   ];
 
   den.aspects.T14-4.nixos = { config, lib, pkgs, ... }: {
@@ -38,6 +39,10 @@
         wallpaperStyle = "centered";
       };
     };
+
+    ygg.prefix = "300:3467:ae65:977a";
+    ygg.address = "200:3467:ae65:977a:be15:dd9a:53c4:6964";
+    services.yggdrasil.settings.IfName = "ygg0";
 
     networking.networkmanager.enable = true;
 
