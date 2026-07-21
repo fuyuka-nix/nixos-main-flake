@@ -28,6 +28,7 @@
       };
       secrets = {
         "ygg/private" = {};
+        "nextcloud/admin" = {};
       };
     };
 
@@ -40,11 +41,24 @@
       };
     };
 
-    ygg.prefix = "300:3467:ae65:977a";
-    ygg.address = "200:3467:ae65:977a:be15:dd9a:53c4:6964";
-    services.yggdrasil.settings.IfName = "ygg0";
+    ygg.address = "202:bf3d:9ff8:9cc:24d3:4fb6:c263:f32e";
+    ygg.prefix = "302:bf3d:9ff8:9cc";
+    services.yggdrasil = {
+      settings = {
+        IfName = "ygg0";
+        Listen = [
+          "tcp://[::]:8080"
+          "ws://[::]:4442"
+        ];
+        PrivateKeyPath = "/run/secrets/ygg/private";
+      };
+    };
 
     networking.networkmanager.enable = true;
+    networking.firewall = {
+      logRefusedPackets = true;
+      interfaces.${config.services.yggdrasil.settings.IfName}.allowedTCPPorts = [ 8080 4442 ];
+    };
 
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
