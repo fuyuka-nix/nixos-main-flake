@@ -50,7 +50,7 @@
         services.nextcloud = {
           enable = true;
           package = pkgs.nextcloud34;
-          hostName = "302:bf3d:9ff8:9cc:a2a1:e69c:4f83:40f6";
+          hostName = "300:a09d:7102:3805:a2a1:e69c:4f83:40f6";
           configureRedis = true;
           caching.redis = true;
 
@@ -66,7 +66,7 @@
           };
           settings = {
             trusted_domains = [
-              "[302:bf3d:9ff8:9cc:a2a1:e69c:4f83:40f6]"
+              "[${config.services.nextcloud.hostName}]"
               "[fc00::2]"
               "[fc00::1]"
             ];

@@ -41,8 +41,8 @@
       };
     };
 
-    ygg.address = "202:bf3d:9ff8:9cc:24d3:4fb6:c263:f32e";
-    ygg.prefix = "302:bf3d:9ff8:9cc";
+    ygg.address = "200:a09d:7102:3805:8e3d:4ed8:833c:d932";
+    ygg.prefix = "300:a09d:7102:3805";
     services.yggdrasil = {
       settings = {
         IfName = "ygg0";
@@ -55,10 +55,6 @@
     };
 
     networking.networkmanager.enable = true;
-    networking.firewall = {
-      logRefusedPackets = true;
-      interfaces.${config.services.yggdrasil.settings.IfName}.allowedTCPPorts = [ 8080 4442 ];
-    };
 
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
