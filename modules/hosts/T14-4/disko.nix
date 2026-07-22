@@ -7,6 +7,7 @@
   den.aspects.T14-4.nixos = {
     imports = [ inputs.disko.nixosModules.disko ];
     fileSystems."/nix".neededForBoot = true;
+    fileSystems."/home".neededForBoot = true;
 
     disko.devices.disk.main = {
       type = "disk";
