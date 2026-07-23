@@ -26,13 +26,24 @@
       extraGroups = [
         "wheel"
         "networkmanager"
+        "canner"
       ];
       packages = with pkgs; [
+        wl-clipboard
+        inotify-tools
         android-tools
-        jq
-        tmux
         sops
         keepassxc
+
+        yadm
+        quickshell
+        rose-pine-hyprcursor
+        hyprlauncher
+        hyprsunset
+        hyprpaper
+        hyprpicker
+        hyprshot
+        hyprshutdown
 
         affinity-v3
         libresprite
@@ -44,15 +55,7 @@
         monero-gui
 
         seanime
-        heroic
         mpv
-
-        osu-lazer-bin
-        freesmlauncher
-        ryubing
-        (cataclysm-dda.withMods (_: with cdda-mods; [
-          cc-sounds
-        ]))
       ];
     };
   };

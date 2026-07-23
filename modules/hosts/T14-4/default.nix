@@ -108,19 +108,8 @@
       kitty
       sbctl
       lynis
-      nixd
-      nil
-      wl-clipboard
-      inotify-tools
       brightnessctl
       mako
-      quickshell
-      rose-pine-hyprcursor
-      hyprlauncher
-      hyprsunset
-      hyprpaper
-      hyprpicker
-      hyprshot
       p7zip
       imagemagick
       ripgrep
@@ -129,9 +118,6 @@
       pavucontrol
       tor-browser
       librewolf
-      yadm
-      nix-update
-      hyprshutdown
     ];
   };
 }
