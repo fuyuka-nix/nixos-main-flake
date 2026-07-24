@@ -34,7 +34,11 @@
 
     boot.loader.limine = {
       enable = true;
-      secureBoot.enable = true;
+      secureBoot = {
+        enable = true;
+        autoGenerateKeys = true;
+        autoEnrollKeys.enable = true;
+      };
       style = {
         #wallpapers = [];
         wallpaperStyle = "centered";
