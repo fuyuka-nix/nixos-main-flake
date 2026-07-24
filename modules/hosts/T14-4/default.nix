@@ -99,8 +99,6 @@
 
     services.openssh.enable = true;
 
-    services.fprintd.enable = true;
-
     environment.systemPackages = with pkgs; [
       wget
       fastfetch
