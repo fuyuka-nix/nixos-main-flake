@@ -10,7 +10,7 @@
   {
     vhosts.nextcloud = {
       localPort = 80;
-      localAddr = "[${config.containers.nextcloud.localAddress6}]";
+      localAddr = "192.168.2.2";
     };
 
     services.nginx.virtualHosts."${config.vhosts.nextcloud.ygg}" = {
@@ -29,23 +29,61 @@
     environment.systemPackages = [ pkgs.nextcloud-client ];
     #networking.firewall.allowedTCPPorts = [ 80 ];
 
+    networking.nat = {
+      enable = true;
+      internalInterfaces = [ "br0" ];
+      externalInterface = "wlp0s20f3";
+      enableIPv6 = true;
+    };
+
+    systemd.network = {
+      enable = true;
+      wait-online.enable = false;
+      netdevs = {
+          "20-br0" = {
+            netdevConfig = {
+              Kind = "bridge";
+              Name = "br0";
+            };
+          };
+      };
+      networks = {
+        "40-br0" = {
+          matchConfig.Name = "br0";
+          address = [
+            "192.168.2.1/29"
+          ];
+          # bridgeConfig = {};
+          # Disable address autoconfig when no IP configuration is required
+          # networkConfig.LinkLocalAddressing = "no";
+          # linkConfig = {
+            # or "routable" with IP addresses configured
+            # RequiredForOnline = "carrier";
+          # };
+        };
+      };
+    };
+
     containers.nextcloud = {
       autoStart = true;
       privateNetwork = true;
-      hostAddress6 = "fc00::1";
-      localAddress6 = "fc00::2";
+      hostBridge = "br0";
+
+      #hostAddress = "192.168.2.1";
+      localAddress = "192.168.2.2/29";
       config = { config, lib, pkgs, ...}: {
         system.stateVersion = "26.05";
 
         networking = {
-          firewall = {
-            enable = true;
-            allowedTCPPorts = [ 80 ];
-          };
+          firewall.allowedTCPPorts = [ 80 ];
+          nameservers = [ "1.1.1.1" "9.9.9.9" ];
           # Use systemd-resolved inside the container
           # Workaround for bug https://github.com/NixOS/nixpkgs/issues/162686
           useHostResolvConf = lib.mkForce false;
+          defaultGateway = { address = "192.168.2.1"; };
         };
+
+        services.resolved.enable = true;
 
         services.nextcloud = {
           enable = true;
@@ -55,6 +93,7 @@
           caching.redis = true;
 
           extraAppsEnable = true;
+          appstoreEnable = true;
           extraApps = {
             inherit (config.services.nextcloud.package.packages.apps) contacts calendar tasks;
           };
@@ -67,11 +106,11 @@
           settings = {
             trusted_domains = [
               "[${config.services.nextcloud.hostName}]"
-              "[fc00::2]"
-              "[fc00::1]"
+              "192.168.2.2"
             ];
           };
         };
+
         services.fail2ban = {
           enable = true;
           jails = {
