@@ -94,6 +94,12 @@
       playerctld.enable = true;
       acpid.enable = true;
       upower.enable = true;
+      qbittorrent = {
+        enable = true;
+        openFirewall = true;
+        torrentingPort = 40087;
+        webuiPort = 4088;
+      };
     };
 
     programs.gnupg.agent = {
