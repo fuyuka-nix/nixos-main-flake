@@ -37,7 +37,7 @@
 
         yadm
         quickshell
-        rose-pine-hyprcursor
+        lucy-hyprcursor
         hyprlauncher
         hyprsunset
         hyprpaper

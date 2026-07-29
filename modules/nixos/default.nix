@@ -12,6 +12,8 @@
       "steam-unwrapped"
       "osu-lazer-bin"
       "osu-resources"
+      "lucy-hyprcursor"
+      "lucy-wincursor"
     ])
   ];
   den.default.nixos = { pkgs, ... }: {
@@ -48,6 +50,7 @@
 	cdda-mods = pkgs.callPackage ./../../_packages/cdda-mods { };
 	librewolf = pkgs.callPackage ./../../_packages/librewolf.nix { };
 	seanime = inputs.custompkgs.packages.${final.stdenv.hostPlatform.system}.seanime;
+  lucy-hyprcursor = inputs.hyprskiicursors.packages.${final.stdenv.hostPlatform.system}.lucy-hyprcursor.override { inherit (pkgs) requireFile; };
       })
     ];
   };

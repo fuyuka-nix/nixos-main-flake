@@ -15,5 +15,6 @@
     custompkgs.url = "github:rishabh5321/custom-packages-flake";
     freesm.url = "github:FreesmTeam/FreesmLauncher";
     nix-maid.url = "github:viperML/nix-maid";
+    hyprskiicursors.url = "github:fuyuka-nix/Hyprskiicursors";
   };
 }
