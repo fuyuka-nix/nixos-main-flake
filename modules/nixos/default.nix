@@ -46,11 +46,11 @@
       inputs.affinity-nix.overlays.default
       inputs.freesm.overlays.default
       (prev: final: {
-	osu-resources = pkgs.callPackage ./../../_packages/osu-resources.nix { };
-	cdda-mods = pkgs.callPackage ./../../_packages/cdda-mods { };
-	librewolf = pkgs.callPackage ./../../_packages/librewolf.nix { };
+	osu-resources = final.callPackage ./../../_packages/osu-resources.nix { };
+	cdda-mods = final.callPackage ./../../_packages/cdda-mods { };
+	librewolf = final.callPackage ./../../_packages/librewolf.nix { };
 	seanime = inputs.custompkgs.packages.${final.stdenv.hostPlatform.system}.seanime;
-  lucy-hyprcursor = inputs.hyprskiicursors.packages.${final.stdenv.hostPlatform.system}.lucy-hyprcursor.override { inherit (pkgs) requireFile; };
+  lucy-hyprcursor = inputs.hyprskiicursors.packages.${final.stdenv.hostPlatform.system}.lucy-hyprcursor.override { inherit (final) requireFile; };
       })
     ];
   };
