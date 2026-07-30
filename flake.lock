@@ -262,11 +262,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1785382388,
-        "narHash": "sha256-B7Ls29ymStMY83etEBlej7ZmIUS8la0yRxadsMSsKH8=",
+        "lastModified": 1785382685,
+        "narHash": "sha256-wu4HFn4022hb26ebnZ5BqpsVS3yvSQzloIsCB46hFZA=",
         "owner": "fuyuka-nix",
         "repo": "Hyprskiicursors",
-        "rev": "506c823d8d017d28293548a96cbfed952742d45e",
+        "rev": "f515a1ce814e4c6d14856b236668409bb56af386",
         "type": "github"
       },
       "original": {
