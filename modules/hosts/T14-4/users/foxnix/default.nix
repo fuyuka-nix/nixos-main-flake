@@ -56,6 +56,7 @@
 
         seanime
         mpv
+        osu-resources
       ];
     };
   };
