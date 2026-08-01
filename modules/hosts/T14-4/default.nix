@@ -60,6 +60,10 @@
       };
     };
 
+    vhosts.seanime = {
+      localPort = 43211;
+    };
+
     networking.networkmanager.enable = true;
 
     services.displayManager.gdm.enable = true;
