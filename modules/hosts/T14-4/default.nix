@@ -63,6 +63,7 @@
     vhosts.seanime = {
       localPort = 43211;
     };
+    services.nginx.virtualHosts."${config.vhosts.seanime.ygg}".locations."/".proxyWebsockets = true;
 
     networking.networkmanager.enable = true;
 
