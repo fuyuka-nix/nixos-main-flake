@@ -101,6 +101,20 @@
       playerctld.enable = true;
       acpid.enable = true;
       upower.enable = true;
+      i2pd = {
+        enable = true;
+        proto = {
+          http.enable = true;
+          httpProxy.enable = true;
+          socksProxy.enable = true;
+          sam.enable = true;
+          i2cp = {
+            enable = true;
+            address = "127.0.0.1";
+            port = 7654;
+          };
+        };
+      };
       qbittorrent = {
         enable = true;
         openFirewall = true;
