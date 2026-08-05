@@ -42,7 +42,9 @@
         autoEnrollKeys.enable = true;
       };
       style = {
-        #wallpapers = [];
+        wallpapers = [
+          "${pkgs.osu-resources}/share/osu-resources/Textures/Backgrounds/registration.jpg"
+        ];
         wallpaperStyle = "centered";
       };
     };
