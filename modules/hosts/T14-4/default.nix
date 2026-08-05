@@ -149,6 +149,7 @@
       pavucontrol
       tor-browser
       librewolf
+      ckan
     ];
   };
 }
