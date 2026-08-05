@@ -1,21 +1,19 @@
 {
-  pkgs,
-  lib,
-  ...
+  stdenv,
+  fetchFromGitHub,
+  lib
 }:
 
-pkgs.stdenv.mkDerivation rec {
+stdenv.mkDerivation rec {
   pname = "osu-resources";
-  version = "2026.615.0";
+  version = "2026.710.0";
 
-  src = pkgs.fetchFromGitHub {
+  src = fetchFromGitHub {
     owner = "ppy";
     repo = "osu-resources";
     tag = version;
-    hash = "sha256-V3MYeJm8Ypd8d2cVbKn4DcHgsDcJoH/7+RAWxhT3VFk=";
+    hash = "sha256-h1b5Isc278D3au8Y4CN130xgiw+AVBkhFzOaHdEyFic=";
   };
-
-  dontStrip = true;
 
   installPhase = ''
     runHook preInstall
@@ -23,13 +21,24 @@ pkgs.stdenv.mkDerivation rec {
     assetsOut="$out/share/${pname}"
     mkdir -p $assetsOut
 
-    cp -r osu.Game.Resources/Textures $assetsOut/
-    cp -r osu.Game.Resources/Samples $assetsOut/
-    cp -r osu.Game.Resources/Tracks $assetsOut/
-    cp -r osu.Game.Resources/Fonts $assetsOut/
-    cp -r osu.Game.Resources/Localisation $assetsOut/
-    cp -r osu.Game.Resources/Shaders $assetsOut/
-    cp -r osu.Game.Resources/Skins $assetsOut/
+    ${lib.concatStringsSep "\n" (map (x: "cp ${x} $assetsOut/") [
+      "README.md"
+      "LICENCE.md"
+      "crowdin.yml"
+      "-r assets/medals"
+    ])}
+
+    ${lib.concatStringsSep "\n" (map (x: "cp -r osu.Game.Resources/${x} $assetsOut/") [
+      "Textures"
+      "Samples"
+      "Tracks"
+      "Fonts"
+      "Localisation"
+      "Shaders"
+      "Skins"
+      "ResourceAssembly.cs"
+      "osu.Game.Resources.csproj"
+    ])}
 
     runHook postInstall
   '';
