@@ -57,6 +57,14 @@
         seanime
         mpv
         osu-resources
+        osu-lazer-bin
+        freesmlauncher
+        ryubing
+        heroic
+        bottles
+        (cataclysm-dda.withMods (_: with cdda-mods; [
+          cc-sounds
+        ]))
       ];
     };
   };

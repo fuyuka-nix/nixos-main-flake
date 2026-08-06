@@ -21,13 +21,8 @@
       ];
       packages = with pkgs; [
         heroic
-        #bottles
-        osu-lazer-bin
-        freesmlauncher
-        ryubing
-        (cataclysm-dda.withMods (_: with cdda-mods; [
-          cc-sounds
-        ]))
+        bottles
+        ckan
       ];
     };
   };
