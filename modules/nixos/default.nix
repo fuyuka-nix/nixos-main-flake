@@ -48,7 +48,6 @@
       (prev: final: {
         osu-resources = final.callPackage ./../../_packages/osu-resources.nix { };
         cdda-mods = final.callPackage ./../../_packages/cdda-mods { };
-        librewolf = final.callPackage ./../../_packages/librewolf.nix { };
         seanime = inputs.custompkgs.packages.${final.stdenv.hostPlatform.system}.seanime;
         lucy-hyprcursor = inputs.hyprskiicursors.packages.${final.stdenv.hostPlatform.system}.lucy-hyprcursor.override { inherit (final) requireFile; };
         zen-browser = final.wrapFirefox

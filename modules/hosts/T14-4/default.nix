@@ -148,7 +148,6 @@
       easyeffects
       pavucontrol
       tor-browser
-      librewolf
       zen-browser
       ckan
     ];
