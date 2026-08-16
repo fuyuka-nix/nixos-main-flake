@@ -20,25 +20,25 @@
     system.stateVersion = "26.05";
     boot = {
       loader = {
-	efi.canTouchEfiVariables = true;
-	timeout = 25;
+        efi.canTouchEfiVariables = true;
+        timeout = 25;
       };
     };
 
     nix = {
       settings.auto-optimise-store = true;
       extraOptions = ''
-	experimental-features = nix-command flakes pipe-operators
-	keep-outputs = true
-	keep-derivations = true
+        experimental-features = nix-command flakes pipe-operators
+        keep-outputs = true
+        keep-derivations = true
       '';
     };
 
     programs.nh = {
       enable = true;
       clean = {
-	enable = true;
-	extraArgs = "--keep 5 --keep-since 2d";
+        enable = true;
+        extraArgs = "--keep 5 --keep-since 2d";
       };
     };
 
@@ -46,11 +46,47 @@
       inputs.affinity-nix.overlays.default
       inputs.freesm.overlays.default
       (prev: final: {
-	osu-resources = final.callPackage ./../../_packages/osu-resources.nix { };
-	cdda-mods = final.callPackage ./../../_packages/cdda-mods { };
-	librewolf = final.callPackage ./../../_packages/librewolf.nix { };
-	seanime = inputs.custompkgs.packages.${final.stdenv.hostPlatform.system}.seanime;
-  lucy-hyprcursor = inputs.hyprskiicursors.packages.${final.stdenv.hostPlatform.system}.lucy-hyprcursor.override { inherit (final) requireFile; };
+        osu-resources = final.callPackage ./../../_packages/osu-resources.nix { };
+        cdda-mods = final.callPackage ./../../_packages/cdda-mods { };
+        librewolf = final.callPackage ./../../_packages/librewolf.nix { };
+        seanime = inputs.custompkgs.packages.${final.stdenv.hostPlatform.system}.seanime;
+        lucy-hyprcursor = inputs.hyprskiicursors.packages.${final.stdenv.hostPlatform.system}.lucy-hyprcursor.override { inherit (final) requireFile; };
+        zen-browser = final.wrapFirefox
+          inputs.zen-browser.packages.${final.stdenv.hostPlatform.system}.zen-browser-unwrapped
+          {
+            extraPolicies = {
+              DisableTelemetry = true;
+              SearchEngines = {
+                Default = "ddg";
+                Add = [
+                  {
+                    Name = "nixpkgs packages";
+                    URLTemplate = "https://search.nixos.org/packages?query={searchTerms}";
+                    IconURL = "https://wiki.nixos.org/favicon.ico";
+                    Alias = "@np";
+                  }
+                  {
+                    Name = "NixOS options";
+                    URLTemplate = "https://search.nixos.org/options?query={searchTerms}";
+                    IconURL = "https://wiki.nixos.org/favicon.ico";
+                    Alias = "@no";
+                  }
+                  {
+                    Name = "NixOS Wiki";
+                    URLTemplate = "https://wiki.nixos.org/w/index.php?search={searchTerms}";
+                    IconURL = "https://wiki.nixos.org/favicon.ico";
+                    Alias = "@nw";
+                  }
+                  {
+                    Name = "noogle";
+                    URLTemplate = "https://noogle.dev/q?term={searchTerms}";
+                    IconURL = "https://noogle.dev/favicon.ico";
+                    Alias = "@ng";
+                  }
+                ];
+              };
+            };
+          };
       })
     ];
   };

@@ -16,5 +16,9 @@
     freesm.url = "github:FreesmTeam/FreesmLauncher";
     nix-maid.url = "github:viperML/nix-maid";
     hyprskiicursors.url = "github:fuyuka-nix/Hyprskiicursors";
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
