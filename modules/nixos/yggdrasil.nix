@@ -1,5 +1,4 @@
 {
-  lib,
   den,
   ...
 }:
@@ -32,6 +31,21 @@
           description = "port to listen from nginx";
           type = lib.types.port;
           default = 80;
+        };
+        domain = lib.mkOption {
+          description = "domain to be used by a local dns host";
+          type = lib.types.str;
+          default = "${name}.ygg";
+        };
+        useDomain = lib.mkOption {
+          description = "to use 'domain' instead of 'ygg' on nginx";
+          type = lib.types.bool;
+          default = false;
+        };
+        autoSetNginx = lib.mkOption {
+          description = "wether to auto set up nginx for this vhost";
+          type = lib.types.bool;
+          default = true;
         };
       };
     };
@@ -80,16 +94,29 @@
           ))
         ];
       };
-
+      
       services = {
         nginx = {
           enable = true;
-          virtualHosts = lib.mapAttrs'
-            (name: value: lib.nameValuePair "${value.ygg}" {
-              listen = [{ addr = "[${value.ygg}]"; port = value.pubPort; }];
-              locations."/".proxyPass = "http://${value.localAddr}:${lib.toString value.localPort}";
-            })
-            config.vhosts;
+          recommendedProxySettings = true;
+          virtualHosts =
+            lib.filterAttrs (_: v: v != null) (
+              lib.mapAttrs' (name: value:
+                if value.autoSetNginx then
+                  lib.nameValuePair
+                    (if value.useDomain then value.domain else value.ygg)
+                    {
+                      listen = [{ addr = "[${value.ygg}]"; port = value.pubPort; }];
+                      locations."/" = {
+                        proxyPass = "http://${value.localAddr}:${lib.toString value.localPort}";
+                        proxyWebsockets = true;
+                        extraConfig = "proxy_pass_header Authorization;";
+                      };
+                    }
+                else
+                  lib.nameValuePair "__skip__" null
+              ) config.vhosts
+            );
         };
         yggdrasil = {
           enable = true;
@@ -98,13 +125,16 @@
           settings = {
             IfName = lib.mkDefault "ygg0";
             Peers = [
-              "tcp://satori.nadeko.net:44441"
+              "tls://satori.nadeko.net:44442"
               "tcp://ygg.nadeko.net:44441"
               "tcp://ygg-1.okade.pro:20000"
             ];
           };
         };
       };
+
+      environment.etc."ygg-addresses".text = builtins.concatStringsSep "\n"
+        (lib.mapAttrsToList (n: v: "[${n}] ${v.ygg}:${lib.toString v.pubPort} -> ${v.localAddr}:${lib.toString v.localPort}") config.vhosts);
     };
   };
 }
