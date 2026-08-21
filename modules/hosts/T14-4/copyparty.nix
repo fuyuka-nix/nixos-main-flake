@@ -17,7 +17,7 @@
     services.copyparty = {
       enable = true;
       user = "foxnix";
-      group = "foxnix";
+      group = "users";
 
       settings = {
         i = "::";
