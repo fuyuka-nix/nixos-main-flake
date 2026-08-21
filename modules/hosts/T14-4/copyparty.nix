@@ -11,12 +11,13 @@
     sops.secrets."copyparty/fox" = {
       owner = config.services.copyparty.user;
       group = config.services.copyparty.group;
+      mode = "0440";
     };
 
     services.copyparty = {
       enable = true;
-      user = "copyparty";
-      group = "copyparty";
+      user = "foxnix";
+      group = "foxnix";
 
       settings = {
         i = "::";
@@ -25,6 +26,20 @@
 
       accounts = {
         fox.passwordFile = "/run/secrets/copyparty/fox";
+      };
+
+      volumes = {
+        "/fox" = {
+          path = "/home/foxnix/copyparty";
+          access = {
+            rw = "fox";
+          };
+          flags = {
+            fk = 4;
+            scan = 120;
+            nohast = "\.iso$";
+          };
+        };
       };
     };
   };
