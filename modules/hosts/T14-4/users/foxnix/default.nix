@@ -55,7 +55,6 @@
         monero-gui
 
         seanime
-        mpv
         osu-resources
         osu-lazer-bin
         freesmlauncher
@@ -65,6 +64,8 @@
         (cataclysm-dda.withMods (_: with cdda-mods; [
           cc-sounds
         ]))
+
+        (mpv.override { youtubeSupport = false; })
       ];
     };
   };
