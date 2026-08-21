@@ -17,6 +17,7 @@
     ])
   ];
   den.default.nixos = { pkgs, ... }: {
+    imports = [ inputs.copyparty.nixosModules.default ];
     system.stateVersion = "26.05";
     boot = {
       loader = {
@@ -45,6 +46,7 @@
     nixpkgs.overlays = [
       inputs.affinity-nix.overlays.default
       inputs.freesm.overlays.default
+      inputs.copyparty.overlays.default
       (prev: final: {
         osu-resources = final.callPackage ./../../_packages/osu-resources.nix { };
         cdda-mods = final.callPackage ./../../_packages/cdda-mods { };
