@@ -105,6 +105,7 @@
       upower.enable = true;
       i2pd = {
         enable = true;
+        /*
         proto = {
           http.enable = true;
           httpProxy.enable = true;
@@ -116,6 +117,7 @@
             port = 7654;
           };
         };
+        */
       };
       qbittorrent = {
         enable = true;
