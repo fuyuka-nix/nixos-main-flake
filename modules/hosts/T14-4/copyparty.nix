@@ -32,12 +32,12 @@
         "/fox" = {
           path = "/home/foxnix/copyparty";
           access = {
-            rw = "fox";
+            A = "fox";
           };
           flags = {
             fk = 4;
             scan = 120;
-            nohast = "\.iso$";
+            nohast = "\\.iso$";
           };
         };
       };
