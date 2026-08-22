@@ -152,6 +152,7 @@
       tor-browser
       zen-browser
       ckan
+      bat
     ];
   };
 }
