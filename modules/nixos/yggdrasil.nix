@@ -98,7 +98,6 @@
       services = {
         nginx = {
           enable = true;
-          recommendedProxySettings = true;
           virtualHosts =
             lib.filterAttrs (_: v: v != null) (
               lib.mapAttrs' (name: value:
