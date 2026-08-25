@@ -32,8 +32,6 @@
       };
     };
 
-    boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-
     boot.loader.limine = {
       enable = true;
       secureBoot = {

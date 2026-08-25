@@ -48,6 +48,7 @@
       inputs.freesm.overlays.default
       inputs.copyparty.overlays.default
       (prev: final: {
+        linux_hardened = final.linuxPackagesFor (final.callPackage ./../../_packages/linux-hardened.nix { });
         osu-resources = final.callPackage ./../../_packages/osu-resources.nix { };
         cdda-mods = final.callPackage ./../../_packages/cdda-mods { };
         seanime = inputs.custompkgs.packages.${final.stdenv.hostPlatform.system}.seanime;

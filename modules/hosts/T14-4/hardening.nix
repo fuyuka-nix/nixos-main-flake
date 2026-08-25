@@ -1,0 +1,35 @@
+{
+  den,
+  ...
+}:
+{
+  den.aspects.T14-4.nixos = { pkgs, ... }: {
+    boot = {
+      kernelPackages = pkgs.linux_hardened;
+      blacklistedKernelModules = [
+        # Obscure network protocols
+        "ax25" "netrom" "rose"
+
+        # Old or rare or insufficiently audited filesystems
+        "adfs" "affs"
+        "bfs" "befs"
+        "cramfs"
+        "efs" "erofs" "exofs"
+        "freevxfs" "f2fs"
+        "hfs" "hpfs"
+        "jfs"
+        "minix"
+        "nilfs2" "ntfs"
+        "omfs"
+        "qnx4" "qnx6"
+        "sysv"
+        "ufs"
+      ];
+    };
+
+    security = {
+      # I'm an osu player lol
+      unprivilegedUsernsClone = true;
+    };
+  };
+}
