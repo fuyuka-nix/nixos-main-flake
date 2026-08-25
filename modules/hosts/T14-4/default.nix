@@ -109,6 +109,7 @@
       mako
       p7zip
       imagemagick
+      ffmpeg
       ripgrep
       crosspipe
       easyeffects

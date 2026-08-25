@@ -52,6 +52,8 @@
 
         simplex-chat-desktop
         thunderbird
+        aerc
+        profanity
         monero-gui
 
         seanime
