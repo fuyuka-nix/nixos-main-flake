@@ -3,16 +3,32 @@
   ...
 }:
 {
-  den.aspects.T14-4.nixos = { config, ... }: {
-    services.glance = {
-      enable = true;
-      settings = {
-        server.port = 5054;
-      };
+  den.aspects.T14-4.nixos = { config, lib, ... }:
+  let
+    vhost = config.vhosts.glance;
+  in {
+    vhosts.glance = {
+      localPort = 5054;
     };
 
-    vhosts.glance = {
-      localPort = config.services.glance.settings.server.port;
+    services = { 
+      nginx.virtualHosts."[${vhost.ygg}]" = {
+        listen = [
+          {
+            addr = "[${vhost.ygg}]";
+            port = 80;
+          }
+        ];
+        locations."/" = {
+          proxyPass = "http://${vhost.localAddr}:${lib.toString vhost.localPort}";
+        };
+      };
+      glance = {
+        enable = true;
+        settings = {
+          server.port = vhost.localPort;
+        };
+      };
     };
   };
 }
