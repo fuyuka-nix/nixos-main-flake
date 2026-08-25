@@ -111,8 +111,8 @@
       crosspipe
       easyeffects
       pavucontrol
-      tor-browser
-      #zen-browser # firejailed
+      tor-browser # firejailed
+      zen-browser # firejailed
       ckan
       bat
     ];

@@ -111,6 +111,11 @@
           profile = "${pkgs.firejail}/etc/firejail/zen-browser.profile";
           extraArgs = [ "--blacklist=/etc/ld-nix.so.preload" ];
         };
+        tor-browser = {
+          executable = "${pkgs.tor-browser}/bin/tor-browser";
+          profile = "${pkgs.firejail}/etc/firejail/torbrowser.profile";
+          extraArgs = [ "--blacklist=/etc/ld-nix.so.preload" ];
+        };
       };
     };
   };
