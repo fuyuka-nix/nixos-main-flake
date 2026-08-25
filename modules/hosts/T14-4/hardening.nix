@@ -92,6 +92,15 @@
 
     environment = {
       memoryAllocator.provider = "graphene-hardened";
+      systemPackages = with pkgs; [
+        clamav
+        lynis
+      ];
+    };
+
+    services = {
+      clamav.daemon.enable = true;
+      clamav.updater.enable = true;
     };
 
     programs.firejail = {

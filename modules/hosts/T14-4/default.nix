@@ -102,7 +102,6 @@
       btop
       kitty
       sbctl
-      lynis
       brightnessctl
       mako
       p7zip
@@ -113,7 +112,7 @@
       easyeffects
       pavucontrol
       tor-browser
-      zen-browser
+      #zen-browser # firejailed
       ckan
       bat
     ];
