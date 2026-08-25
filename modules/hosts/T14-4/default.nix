@@ -49,26 +49,6 @@
       };
     };
 
-    ygg.address = "200:a09d:7102:3805:8e3d:4ed8:833c:d932";
-    ygg.prefix = "300:a09d:7102:3805";
-    services.yggdrasil = {
-      settings = {
-        IfName = "ygg0";
-        Listen = [
-          "tcp://[::]:8080"
-          "ws://[::]:4442"
-        ];
-        PrivateKeyPath = "/run/secrets/ygg/private";
-      };
-    };
-
-    vhosts.seanime = {
-      localPort = 43211;
-    };
-    services.nginx.virtualHosts."${config.vhosts.seanime.ygg}".locations."/".proxyWebsockets = true;
-
-    networking.networkmanager.enable = true;
-
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
 
@@ -103,22 +83,6 @@
       playerctld.enable = true;
       acpid.enable = true;
       upower.enable = true;
-      i2pd = {
-        enable = true;
-        /*
-        proto = {
-          http.enable = true;
-          httpProxy.enable = true;
-          socksProxy.enable = true;
-          sam.enable = true;
-          i2cp = {
-            enable = true;
-            address = "127.0.0.1";
-            port = 7654;
-          };
-        };
-        */
-      };
       qbittorrent = {
         enable = true;
         openFirewall = true;

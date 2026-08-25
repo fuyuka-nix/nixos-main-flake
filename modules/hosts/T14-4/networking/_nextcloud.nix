@@ -65,7 +65,7 @@
     };
 
     containers.nextcloud = {
-      autoStart = true;
+      autoStart = false;
       privateNetwork = true;
       hostBridge = "br0";
 

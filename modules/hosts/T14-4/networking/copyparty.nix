@@ -11,7 +11,6 @@
     vhosts.copyparty = {
       localAddr = "127.0.0.1";
       localPort = 3992;
-      autoSetNginx = false;
     };
 
     services.nginx = {
@@ -20,6 +19,10 @@
           {
             addr = "[${vhost.ygg}]";
             port = 80;
+          }
+          {
+            addr = "[${vhost.ygg}]";
+            port = 443;
           }
         ];
         locations."/" = {
