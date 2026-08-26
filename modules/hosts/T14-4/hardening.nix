@@ -91,7 +91,7 @@
     };
 
     environment = {
-      memoryAllocator.provider = "graphene-hardened";
+      #memoryAllocator.provider = "graphene-hardened"; # Will be enabled when I no longer need affinity (I hope)
       systemPackages = with pkgs; [
         clamav
         lynis
