@@ -36,7 +36,6 @@
 	sops
 	keepassxc
 
-	affinity-v3
 	libresprite
 	libreoffice
 	obs-studio

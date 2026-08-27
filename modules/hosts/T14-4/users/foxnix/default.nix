@@ -45,7 +45,6 @@
         hyprshot
         hyprshutdown
 
-        affinity-v3
         libresprite
         libreoffice
         obs-studio

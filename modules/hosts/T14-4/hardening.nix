@@ -75,13 +75,14 @@
         # Ignore outgoing ICMP redirects (this is ipv4 only)
         "net.ipv4.conf.all.send_redirects" = false;
         "net.ipv4.conf.default.send_redirects" = false;
+
+        # I'm an osu player lol
+        "kernel.unprivileged_userns_clone" = "1";
+        #"user.max_user_namespaces" = "1000";
       };
     };
 
     security = {
-      # I'm an osu player lol
-      unprivilegedUsernsClone = true;
-
       forcePageTableIsolation = true;
       protectKernelImage = true;
     };

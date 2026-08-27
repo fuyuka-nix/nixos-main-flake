@@ -6,8 +6,6 @@
 {
   den.default.includes = [
     (den.batteries.unfree [
-      "affinity-extracted-sources"
-      "affinity-v3"
       "steam"
       "steam-unwrapped"
       "osu-lazer-bin"
@@ -44,7 +42,6 @@
     };
 
     nixpkgs.overlays = [
-      inputs.affinity-nix.overlays.default
       inputs.freesm.overlays.default
       inputs.copyparty.overlays.default
       (prev: final: {
