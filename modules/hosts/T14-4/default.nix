@@ -108,6 +108,7 @@
       imagemagick
       ffmpeg
       ripgrep
+      (bottles.override { removeWarningPopup = true; })
       crosspipe
       easyeffects
       pavucontrol
@@ -115,6 +116,7 @@
       zen-browser # firejailed
       ckan
       bat
+      graphite
     ];
   };
 }

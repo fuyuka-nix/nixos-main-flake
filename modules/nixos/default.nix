@@ -10,6 +10,7 @@
       "steam-unwrapped"
       "osu-lazer-bin"
       "osu-resources"
+      "graphite"
       "lucy-hyprcursor"
       "lucy-wincursor"
     ])

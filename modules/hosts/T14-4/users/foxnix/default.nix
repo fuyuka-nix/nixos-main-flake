@@ -50,7 +50,6 @@
         obs-studio
 
         simplex-chat-desktop
-        thunderbird
         aerc
         profanity
         monero-gui
@@ -61,7 +60,6 @@
         freesmlauncher
         ryubing
         heroic
-        bottles
         (cataclysm-dda.withMods (_: with cdda-mods; [
           cc-sounds
         ]))
