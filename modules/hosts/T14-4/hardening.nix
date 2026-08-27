@@ -117,6 +117,11 @@
           profile = "${pkgs.firejail}/etc/firejail/torbrowser.profile";
           extraArgs = [ "--blacklist=/etc/ld-nix.so.preload" ];
         };
+        graphite = {
+          executable = "${pkgs.graphite}/bin/graphite";
+          profile = "${pkgs.firejail}/etc/firejail/noprofile.profile";
+          extraArgs = [ "--blacklist=/etc/ld-nix.so.preload" ];
+        };
       };
     };
   };
