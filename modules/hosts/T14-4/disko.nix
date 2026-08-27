@@ -9,6 +9,8 @@
     fileSystems."/nix".neededForBoot = true;
     fileSystems."/home".neededForBoot = true;
 
+    boot.tmp.cleanOnBoot = true;
+
     disko.devices.disk.main = {
       type = "disk";
       device = "/dev/nvme0n1";
