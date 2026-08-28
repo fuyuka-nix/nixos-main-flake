@@ -50,6 +50,8 @@
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
 
+    services.usbmuxd.enable = true;
+
     programs = {
       nh.flake = "/etc/nixos";
       git.enable = true;
