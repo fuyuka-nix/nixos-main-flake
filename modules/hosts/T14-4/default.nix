@@ -52,6 +52,8 @@
 
     services.usbmuxd.enable = true;
 
+    networking.firewall.allowedTCPPorts = [ 9999 ];
+
     programs = {
       nh.flake = "/etc/nixos";
       git.enable = true;
@@ -120,6 +122,11 @@
       ckan
       bat
       graphite
+
+      pmbootstrap
+      ifuse
+      ipsw
+      libirecovery
     ];
   };
 }
