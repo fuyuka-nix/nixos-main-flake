@@ -26,7 +26,6 @@
       extraGroups = [
         "wheel"
         "networkmanager"
-        "canner"
       ];
       packages = with pkgs; [
         wl-clipboard
