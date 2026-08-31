@@ -85,6 +85,8 @@
     security = {
       forcePageTableIsolation = true;
       protectKernelImage = true;
+      doas.enable = true;
+      sudo.enable = false;
     };
 
     nix.settings = {
