@@ -14,9 +14,6 @@
       foxnix = {
         classes = [ "maid" ];
       };
-      fennec = {
-        classes = [ "maid" ];
-      };
     };
   };
 }
