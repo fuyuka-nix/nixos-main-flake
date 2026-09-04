@@ -13,7 +13,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
     custompkgs.url = "github:rishabh5321/custom-packages-flake";
     freesm.url = "github:FreesmTeam/FreesmLauncher";
-    nix-maid.url = "github:viperML/nix-maid";
+    nix-maid.url = "git+https://codeberg.org/viperML/nix-maid";
     hyprskiicursors.url = "github:fuyuka-nix/Hyprskiicursors";
     copyparty.url = "github:9001/copyparty";
     zen-browser = {
