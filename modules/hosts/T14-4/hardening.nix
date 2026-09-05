@@ -111,7 +111,7 @@
       wrappedBinaries = {
         zen = {
           executable = "${pkgs.zen-browser}/bin/zen";
-          profile = "${pkgs.firejail}/etc/firejail/zen-browser.profile";
+          profile = "${pkgs.firejail}/etc/firejail/noprofile.profile";
           extraArgs = [ "--blacklist=/etc/ld-nix.so.preload" ];
         };
         tor-browser = {
